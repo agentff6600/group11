@@ -23,7 +23,5 @@ To install Grunt, you must first download and install node.js (which includes np
 
 Then, from the command line:
 Install `grunt-cli` globally with `npm install -g grunt-cli`.
-Navigate to the root /bootstrap/ directory, then run npm install. npm will look at the package.json file and automatically install the necessary local dependencies listed there.
+Navigate to the root /bootstrap/ directory, then run `npm install`. npm will look at the package.json file and automatically install the necessary local dependencies listed there.
 When completed, you'll be able to run the various Grunt commands provided from the command line.
-
-
