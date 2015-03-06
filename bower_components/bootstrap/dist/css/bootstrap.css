@@ -6566,9 +6566,9 @@ button.close {
 .sidebar {
   position: absolute;
   top: 0;
-  right: -160px;
+  right: -260px;
   bottom: 0;
-  width: 200px;
+  width: 300px;
   cursor: pointer;
   background-color: darkorange;
   -webkit-transition: right 1s;
