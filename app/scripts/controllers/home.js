@@ -6,6 +6,6 @@
  * Controller of the musicPlayerApp
  */
 angular.module('musicPlayerApp')
-  .controller('AlbumsCtrl', function ($scope) {
-  	console.log("albums controller");
+  .controller('HomeCtrl', function ($scope) {
+  	console.log("home controller");
   });

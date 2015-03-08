@@ -1,26 +1,33 @@
-<div id="mp_wrapper" class="container-fluid">
+<div id="mp_wrapper" class="container-fluid" ng-class="{'sidebar-closed' : !sidebar}">
     <div class="row">
-        <div id="mp_main" class="col-sm-9 col-lg-10">
-            <div class="header" ui-view="header">
-                <ul class="nav nav-pills pull-right">
-                    <li ng-class="{'active' : page == 'home'}"><a ng-href="#">Home</a>
+        <div id="mp_main">
+            <div class="header">
+
+                <div class="nav nav-pills pull-right form-inline">
+                    <input type="search" class="form-control" placeholder="Search..."> <i ng-click="toggleSidebar()" class='fa fa-2x fa-toggle-left'></i>
+                </div>
+
+                <ul class="nav nav-pills">
+
+                    <li class="navbar-brand">music player</li>
+
+                    <li ng-click="page = 'home'" ng-class="{'active' : page == 'home'}">
+                        <a ng-href="#/home">Home</a>
                     </li>
-                    <li ng-class="{'active' : page == 'artists'}"><a ng-href="#/artists">Artists</a>
+                    <li ng-click="page = 'artists'" ng-class="{'active' : page == 'artists'}">
+                        <a ng-href="#/artists">Artists</a>
                     </li>
-                    <li ng-class="{'active' : page == 'albums'}"><a ng-href="#/albums">Albums</a>
+                    <li ng-click="page = 'albums'" ng-class="{'active' : page == 'albums'}">
+                        <a ng-href="#/albums">Albums</a>
                     </li>
-                    <li ng-class="{'active' : page == 'playlists'}"><a ng-href="#/playlists">Playlists</a>
-                    </li>
-                    <li><a ng-href="#">{{page}}</a>
+                    <li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
+                        <a ng-href="#/playlists">Playlists</a>
                     </li>
                 </ul>
-                <h3 class="text-muted">musicPlayer</h3>
-
-                <input type="text" ng-model="page" />
             </div>
 
             <div id="mp_view" ui-view="mainContent"></div>
         </div>
-        <div id="mp_sidebar" class="col-sm-3 col-lg-2"></div>
+        <div id="mp_sidebar"></div>
     </div>
 </div>
