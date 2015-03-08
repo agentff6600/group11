@@ -1,5 +1,3 @@
-'use strict';
-
 /**
  * @ngdoc function
  * @name musicPlayerApp.controller:MainCtrl
@@ -9,9 +7,5 @@
  */
 angular.module('musicPlayerApp')
   .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+  	console.log("main controller");
   });
