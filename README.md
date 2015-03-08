@@ -1,29 +1,52 @@
-# group11
-Web Audio Player
+# Web Audio Player
 
-##Setup
+This repository hosts the code for the Web Audio Player project, for Interaction Programming Project (Group 11).
 
-you need node.js and bower to run it.
+## Check it out
 
-##Install node.js
+<Add link to online version>
 
-Have a look: http://nodejs.org
+## Get started
 
+In order to contribute to this project, you have need to have 
+you need [node.js](http://nodejs.org) and bower to run it.
 
-##Install Bower
+After node is installed, clone this repo and run the following in the terminal (same folder as this project).
 
-Bower is a command line utility. Install it with npm.
+```sh
+npm install
+bower install
+```
 
-`npm install -g bower`
-Bower requires Node and npm and Git.
+This will ensure all the necessary dependencies are downloaded and installed.
 
+*If grunt does not install automatically, run `npm install -g grunt-cli` to install the grunt client globally*.
 
-##Installing Grunt
-To install Grunt, you must first download and install node.js (which includes npm). npm stands for node packaged modules and is a way to manage development dependencies through node.js.
+### Run the code
+In order to run the app, type in the terminal:
 
-Then, from the command line:
-Install `grunt-cli` globally with `npm install -g grunt-cli`.
-Navigate to the root /bootstrap/ directory,then run `npm install`.
+```sh
+grunt serve
+```
 
-npm will look at the package.json file and automatically install the necessary local dependencies listed there.
-When completed, you'll be able to run the various Grunt commands provided from the command line.
+The browser will open and every change in the source files will automatically update the app running in the browser.
+
+### Deploy (production)
+In order to deploy the app, type in the terminal:
+
+```sh
+grunt build
+```
+
+The standalone version of the app will be generated in the folder `dist`. Upload the contents of this folder alone to your server (don't upload anything else).
+
+## Credits
+
+Arthur Câmara - [acvds@kth.se](mailto:acvds@kth.se)
+Charles Windlin - [windlin@kth.se](mailto:windlin@kth.se)
+Konstantina Pantagaki - [panta@kth.se](mailto:panta@kth.se)
+Mladen Milivojevic - [mladenm@kth.se](mailto:mladenm@kth.se)
+
+## License
+
+Code released under [the MIT license](https://github.com/agentff6600/group11/blob/master/LICENSE.md).
