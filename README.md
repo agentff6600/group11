@@ -4,14 +4,14 @@ This repository hosts the code for the Web Audio Player project, for Interaction
 
 ## Check it out
 
-<Add link to online version>
+(Add link to online version)
 
 ## Get started
 
 In order to contribute to this project, you have need to have 
 you need [node.js](http://nodejs.org) and bower to run it.
 
-After node is installed, clone this repo and run the following in the terminal (same folder as this project).
+After node is installed, clone this repo and **run the following in the terminal** (same folder as this project).
 
 ```sh
 npm install
@@ -38,14 +38,18 @@ In order to deploy the app, type in the terminal:
 grunt build
 ```
 
+### Development
+
+**The source files are under the folder `app`. Make sure you develop only in that folder**
+
 The standalone version of the app will be generated in the folder `dist`. Upload the contents of this folder alone to your server (don't upload anything else).
 
 ## Credits
 
-Arthur Câmara - [acvds@kth.se](mailto:acvds@kth.se)
-Charles Windlin - [windlin@kth.se](mailto:windlin@kth.se)
-Konstantina Pantagaki - [panta@kth.se](mailto:panta@kth.se)
-Mladen Milivojevic - [mladenm@kth.se](mailto:mladenm@kth.se)
+* Arthur Câmara - [acvds@kth.se](mailto:acvds@kth.se)
+* Charles Windlin - [windlin@kth.se](mailto:windlin@kth.se)
+* Konstantina Pantagaki - [panta@kth.se](mailto:panta@kth.se)
+* Mladen Milivojevic - [mladenm@kth.se](mailto:mladenm@kth.se)
 
 ## License
 
