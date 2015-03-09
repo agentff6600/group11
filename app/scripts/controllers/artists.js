@@ -7,4 +7,5 @@
  */
 angular.module('musicPlayerApp')
   .controller('ArtistsCtrl', function ($scope) {
+  	console.log("artist controller");
   });

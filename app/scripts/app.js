@@ -30,6 +30,24 @@ angular.module('musicPlayerApp', [
             templateUrl: "views/artists.html",
           }
         }
+    })
+    .state('app.albums', {
+        url: "/albums",
+        views: {
+          "mainContent": {
+            controller: "AlbumsCtrl",
+            templateUrl: "views/albums.html",
+          }
+        }
+    })
+    .state('app.playlists', {
+        url: "/playlists",
+        views: {
+          "mainContent": {
+            controller: "PlaylistsCtrl",
+            templateUrl: "views/playlists.html",
+          }
+        }
     });
 
     // if none of the above states are matched, use this as the fallback
