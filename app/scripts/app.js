@@ -2,9 +2,13 @@
  * Main module of the application.
  */
 angular.module('musicPlayerApp', [
-    'ui.router'
+    'ui.router', 'spotify', 'angucomplete-alt'
   ])
-	.config(['$stateProvider', '$urlRouterProvider', function ($stateProvider, $urlRouterProvider) {
+	.config(['$stateProvider', '$urlRouterProvider', 'SpotifyProvider', function ($stateProvider, $urlRouterProvider, SpotifyProvider) {
+
+		SpotifyProvider.setClientId('16106a33d71a48499d684c8cf8672502');
+  		//SpotifyProvider.setRedirectUri('http://localhost:9000/callback');
+  		SpotifyProvider.setScope('user-read-private playlist-read-private playlist-modify-private playlist-modify-public');
 
 		$stateProvider
 			.state('app', {
@@ -50,7 +54,7 @@ angular.module('musicPlayerApp', [
 				}
 			})
 			.state('app.player', {
-				url: "",
+				url: "player",
 				views: {
 					"musicPlayer": {
 						controller: "PlayerCtrl",
@@ -58,9 +62,6 @@ angular.module('musicPlayerApp', [
 					}
 				}
 			});
-
-
-
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/home');
 

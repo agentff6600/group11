@@ -6,7 +6,7 @@
  * Controller of the musicPlayerApp
  */
 angular.module('musicPlayerApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, Spotify) {
   	console.log("main controller");
 
   	$scope.page = 'home';
@@ -15,4 +15,5 @@ angular.module('musicPlayerApp')
   	$scope.toggleSidebar = function() {
   		$scope.sidebar = !$scope.sidebar;
   	}
+	
 });

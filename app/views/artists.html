@@ -1,3 +1,28 @@
 <h1>ARTISTS VIEW</h1>
 
-<img src="../images/gray.png" alt="" class="img-rounded" height="180" width="180">
+<div class="row placeholders">
+
+	<div ng-repeat="artist in artists">
+		<div class="col-xs-6 col-sm-3 placeholder" ng-controller="AlbumsCtrl">
+			<a ng-href="" type="button" data-toggle="collapse" data-target="#{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
+				<img ng-src="{{artist.images[0].url}}" alt="" class="img-rounded" height="180" width="180">
+			</a>			
+			<h4 style="align="center"">{{artist.name}}</h4>	
+
+			<div class="collapse" id="{{artist.id}}">
+				<div class="well">					
+					<div class="list-group" ng-repeat="album in albums">						
+						<a href="#" class="list-group-item">
+							<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded" height="50" width="50">
+							<h4 class="list-group-item-heading">{{album.name}}</h4>							
+						</a>
+					</div>
+				</div>
+			</div>			
+		</div>	
+	</div>
+
+	
+
+</div>
+
