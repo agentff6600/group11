@@ -1,6 +1,6 @@
 <h1>ARTISTS VIEW</h1>
 
-<div class="row placeholders">
+<div class="row placeholders" ng-controller="PlaylistsCtrl">
 
 	<div ng-repeat="artist in artists">
 		<div class="col-xs-6 col-sm-3 placeholder" ng-controller="AlbumsCtrl">
@@ -27,8 +27,8 @@
 									<div class="modal-body">
 										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded" height="150" width="150">
 										<div class="list-group" ng-repeat="song in songs">						
-											<a ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}">												
-												<h5 class="list-group-item-heading">{{song.name}}</h5>							
+											<a ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" ng-click="addSongToTheList(song)">											
+												<h5 class="list-group-item-heading">{{song.name}}</h5>																			
 											</a>
 										</div>											
 									</div>									
@@ -46,7 +46,6 @@
 		</div>			
 	</div>	
 </div>
-
 
 
 

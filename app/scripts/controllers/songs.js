@@ -12,6 +12,8 @@ angular.module('musicPlayerApp')
     $scope.getSongsFromAlbum = function(album){
       Spotify.getAlbumTracks(album).then(function (data) {
         $scope.songs = data.items;
+
+        console.log($scope.songs);
       });
     }
   	
