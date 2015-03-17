@@ -1,108 +1,113 @@
 //Import bootstrap.less so we can use all the variables..
 @import "../../bower_components/bootstrap/less/bootstrap.less";
-
 /* Space out content a bit */
-body {
-  padding-top: 0;
-  padding-bottom: 20px;
-}
 
+body {
+	padding-top: 0;
+	padding-bottom: 20px;
+	
+//	overflow: hidden;
+}
 /* Everything but the jumbotron gets side spacing for mobile first views */
+
 .header,
 .footer {
-  padding-left: 15px;
-  padding-right: 15px;
+	padding-left: 15px;
+	padding-right: 15px;
 }
-
 /* Custom page header */
+
 .header {
-  border-bottom: 1px solid #e5e5e5;
+	border-bottom: 0px solid #e5e5e5;
 }
 /* Make the masthead heading the same height as the navigation */
+
 .header h3 {
-  margin-top: 0;
-  margin-bottom: 0;
-  line-height: 40px;
-  padding-bottom: 19px;
+	margin-top: 0;
+	margin-bottom: 0;
+	line-height: 40px;
+	padding-bottom: 19px;
 }
-
 /* Custom page footer */
-.footer {
-  padding-top: 19px;
-  color: #777;
-  border-top: 1px solid #e5e5e5;
-}
 
+.footer {
+	padding-top: 19px;
+	color: #777;
+	border-top: 1px solid #e5e5e5;
+}
 /* MAIN STYLES */
 
 #mp_main {
-  margin-right: 300px;
+	margin-right: 300px;
+
 }
 
 #mp_sidebar {
-  background-color: #333333;
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  width: 300px;
+	background-color: #333333;
+	position: fixed;
+	top: 0px;
+	right: 0px;
+	bottom: 0px;
+	width: 300px;
 }
 
 .sidebar-closed #mp_main {
-  margin-right: 0px;
+	margin-right: 0px;
 }
 
 .sidebar-closed #mp_sidebar {
-  right: -301px;
+	right: -301px;
+	display: none;
 }
-
 /* RESPONSIVENESS */
-
 /* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
 
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-  /* Remove the padding we set earlier */
-  .header,
-  .footer {
-    padding-left: 0;
-    padding-right: 0;
-  }
-  /* Space out the masthead */
-  .header {
-    margin-bottom: 30px;
-  }
-}
+//@media (min-width: 768px) {
+//	.container {
+//		max-width: 730px;
+//	}
+//}
+///* Responsive: Portrait tablets and up */
+//
+//@media screen and (min-width: 768px) {
+//	/* Remove the padding we set earlier */
+//	
+//	.header,
+//	.footer {
+//		padding-left: 0;
+//		padding-right: 0;
+//	}
+//	/* Space out the masthead */
+//	
+//	.header {
+//		margin-bottom: 30px;
+//	}
+//}
 
 .text-white {
-  color: white;
+	color: white;
 }
 
-.progress {height: 5px;}
+.progress {
+	height: 5px;
+}
 
 .btn-play {
-  width: 70px;
-  height: 70px;
-  text-align: center;
-  padding: 15px 0;
-  font-size: 27px;
-  line-height: 1.42;
-  border-radius: 50%;
+	width: 70px;
+	height: 70px;
+	text-align: center;
+	padding: 15px 0;
+	font-size: 27px;
+	line-height: 1.42;
+	border-radius: 50%;
 }
 
 .btn-margin-left {
-    margin-left: 10px;
+	margin-left: 10px;
 }
+
 .btn-margin-right {
-    margin-right: 10px;
+	margin-right: 10px;
 }
 
-@brand-primary:         #ff9300;
-
-
-
+@brand-primary: #ff9300;
