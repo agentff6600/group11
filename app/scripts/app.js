@@ -14,8 +14,9 @@ angular.module('musicPlayerApp', [
 			.state('app', {
 				url: "",
 				templateUrl: "views/_main.html",
-				controller: "MainCtrl",
-				page: 'home'
+				controller: "MainCtrl",				
+				page: 'home',
+								
 			})
 			.state('app.home', {
 				url: "/home",
@@ -48,7 +49,7 @@ angular.module('musicPlayerApp', [
 				url: "/playlists",
 				views: {
 					"mainContent": {
-						controller: "PlaylistsCtrl",
+						//controller: "PlaylistsCtrl",
 						templateUrl: "views/playlists.html",
 					}
 				}

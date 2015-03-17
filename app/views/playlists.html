@@ -2,21 +2,18 @@
 
 <div class='content'>
 	<div class="row-fluid">
-		<ul class="thumbnails">
-			<li class="span3" style='margin-left:10px;'>
-				<div class="thumbnail" data-drop="true" ng-model='playlist1' data-jqyoui-options="optionsplaylist1" jqyoui-droppable="{multiple:true}">
-					<div class="caption">
-						<div class="btn btn-info btn-draggable" ng-repeat="item in playlist1" ng-show="item.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist1" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.name}}</div>
+		<ul class="thumbnails">			
+
+			<div ng-repeat="playlist in playlists">
+				<li class="span3" style='margin-left:10px;'>
+					<div class="thumbnail" data-drop="true" ng-model='playlist.songs' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=playlist.songs])'}"  jqyoui-droppable="{multiple:true}">
+						<div class="caption">
+							<div class="btn btn-info btn-draggable" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true}">{{song.track_number}}. {{song.name}}
+							</div>
+						</div>					
 					</div>
-				</div>
-			</li>
-			<li class="span3" style='margin-left:10px;'>
-				<div class="thumbnail" data-drop="true" ng-model='playlist2' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=playlist2])'}"  jqyoui-droppable="{multiple:true}">
-					<div class="caption">
-						<div class="btn btn-info btn-draggable" ng-repeat="item in playlist2" ng-show="item.name" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist2" jqyoui-draggable="{index: {{$index}},animate:true}">{{item.name}}</div>
-					</div>
-				</div>
-			</li>
+				</li>
+			</div>			
 		</ul>
 	</div>
 </div>
@@ -24,7 +21,9 @@
 <div class="navbar-inner">
 	<div class="container form-inline" style="text-align: center;">
 		<div class="btn btn-droppable" ng-repeat="item in listOfSongs" data-drop="true" ng-model='listOfSongs' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=listOfSongs])'}"  jqyoui-droppable="{index: {{$index}}}">
-			<div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listOfSongs" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-hide="!item.name">{{item.track_number}}. {{item.name}}</div>
+			<div class="btn btn-info btn-draggable" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listOfSongs" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-show="item.name">{{item.track_number}}. {{item.name}}</div>
 		</div>
 	</div>
 </div>
+
+<button ng-click="addNewPlaylist('Nova Playlista')">Add New Playlist</button>
