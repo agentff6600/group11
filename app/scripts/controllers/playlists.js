@@ -30,6 +30,7 @@
     $scope.playlists.push(new Playlist(name + i));
 
     console.log($scope.playlists);
+    console.log($scope.queue);
   }
 
   $scope.addSongToPlaylist = function(playlist, song){
@@ -47,6 +48,7 @@
    $scope.listOfSongs.push(song);   
  }
 
+ 
  $scope.addSongToTheQueue = function(song){
 
    $scope.queue.push(song);
@@ -56,23 +58,31 @@
 
  $scope.removeSongFromPlaylist = function(playlist, song){    
 
-    for (var i = 0; i < $scope.playlists.length; i++) {    
+  for (var i = 0; i < $scope.playlists.length; i++) {    
 
-      if($scope.playlists[i].name === playlist)
-      { 
-        for (var j = 0; j < $scope.playlists[i].songs.length; j++) {
-          console.log($scope.listOfSongs);
-          if($scope.playlists[i].songs[j] === song)
-          {            
-              var index = $scope.playlists[i].songs.indexOf(song);
-              $scope.playlists[i].songs.splice(index, 1);
-          } 
-        };
-     }
-   };
+    if($scope.playlists[i].name === playlist)
+    { 
+      for (var j = 0; j < $scope.playlists[i].songs.length; j++) {
+        console.log($scope.listOfSongs);
+        if($scope.playlists[i].songs[j] === song)
+        {            
+          var index = $scope.playlists[i].songs.indexOf(song);
+          $scope.playlists[i].songs.splice(index, 1);
+        } 
+      };
+    }
+  };
+}
 
-   console.log($scope.playlists);
- }
+$scope.removeSongFromQueue = function(song){     
+  for (var i = 0; i < $scope.queue.length; i++) {    
+    if($scope.queue[i] === song)
+    {                    
+      var index = $scope.queue.indexOf($scope.queue[i]);
+      $scope.queue.splice(index, 1);
+    } 
+  };
+}
 
   // Limit items to be dropped in playlist1
   $scope.optionsList1 = {
