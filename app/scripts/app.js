@@ -55,7 +55,7 @@ angular.module('musicPlayerApp', [
 				}
 			})
 			.state('app.player', {
-				url: "player",
+				url: "/player",
 				views: {
 					"musicPlayer": {
 						controller: "PlayerCtrl",
@@ -65,5 +65,6 @@ angular.module('musicPlayerApp', [
 			});
 		// if none of the above states are matched, use this as the fallback
 		$urlRouterProvider.otherwise('/home');
-
+		
+		
   }]);

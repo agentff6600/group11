@@ -9,7 +9,7 @@ angular.module('musicPlayerApp')
   .controller('ArtistsCtrl', function ($scope, Spotify) {
   	console.log("artist controller");
 
-	Spotify.getArtists('4gzpq5DPGxSnKTe4SA8HAU,04gDigrS5kc9YWfZHwBETP,3mvkWMe6swnknwscwvGCHO,0OdUWJ0sBjDrqHygGUXeCF').then(function (data) {
+	Spotify.getArtists('4gzpq5DPGxSnKTe4SA8HAU,04gDigrS5kc9YWfZHwBETP,3mvkWMe6swnknwscwvGCHO,0OdUWJ0sBjDrqHygGUXeCF,3nFkdlSjzX9mRTtwJOzDYB,6kBDZFXuLrZgHnvmPu9NsG').then(function (data) {
   		$scope.artists = data.artists;  		
 	});
   });
