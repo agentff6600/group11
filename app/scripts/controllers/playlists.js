@@ -54,6 +54,26 @@
    console.log($scope.queue);
  }
 
+ $scope.removeSongFromPlaylist = function(playlist, song){    
+
+    for (var i = 0; i < $scope.playlists.length; i++) {    
+
+      if($scope.playlists[i].name === playlist)
+      { 
+        for (var j = 0; j < $scope.playlists[i].songs.length; j++) {
+          console.log($scope.listOfSongs);
+          if($scope.playlists[i].songs[j] === song)
+          {            
+              var index = $scope.playlists[i].songs.indexOf(song);
+              $scope.playlists[i].songs.splice(index, 1);
+          } 
+        };
+     }
+   };
+
+   console.log($scope.playlists);
+ }
+
   // Limit items to be dropped in playlist1
   $scope.optionsList1 = {
     accept: function(dragEl) {

@@ -173,9 +173,9 @@
 								<hr/>
 								<h3 class="text-center text-white">Queue</h3>
 								<li class="span3" style='margin-left:10px;'>
-									<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.btn-draggable:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
+									<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
 										<div class="caption">
-											<div class="btn btn-info btn-draggable" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">{{song.track_number}}. {{song.name}}</div>
+											<div class="list-group-item" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5></div>
 										</div>
 									</div>
 								</li>
