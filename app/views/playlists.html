@@ -8,7 +8,7 @@
 				<li class="span3" style='margin-left:10px;'>
 					<div class="thumbnail" data-drop="true" ng-model='playlist.songs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=playlist.songs])'}"  jqyoui-droppable="{multiple:true}">
 						<div class="caption">
-							<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" ng-click="removeSongFromPlaylist(playlist.name, song)" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5>
+							<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}} <span class="glyphicon glyphicon-remove" ng-click="removeSongFromPlaylist(playlist.name, song)"></span></h5>
 							</div>
 						</div>					
 					</div>

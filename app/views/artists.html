@@ -32,8 +32,8 @@
 														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
 														<div class="voffset3">
 															<div class="list-group" ng-repeat="song in songs">
-																<a ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" ng-click="addSongToTheList(song)">
-																	<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5>
+																<a ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+																	<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}} <span class="glyphicon glyphicon-plus" ng-click="addSongToTheList(song)"></span></h5>
 																</a>
 															</div>
 														</div>

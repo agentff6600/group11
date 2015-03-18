@@ -31,161 +31,162 @@
 							<li ng-click="page = 'albums'" ng-class="{'active' : page == 'albums'}">
 								<a ng-href="#/albums">Your Albums</a>
 							</li>
--->
+						-->
 
-							<form class="navbar-form navbar-left" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control " placeholder="Search songs, albums, artists...">
-								</div>
-							</form>
-							<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
-								<a ng-href="#/playlists"> Your Playlists</a>
-							</li>
-						</ul>
-						<ul class="nav navbar-nav navbar-right">
-							<li>
-								<button ng-click="toggleSidebar()" type="button" class="btn btn-primary navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
-								</button>
-							</li>
-						</ul>
-					</div>
-					<!-- /.navbar-collapse -->
+						<form class="navbar-form navbar-left" role="search">
+							<div class="form-group">
+								<input type="text" class="form-control " placeholder="Search songs, albums, artists...">
+							</div>
+						</form>
+						<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
+							<a ng-href="#/playlists"> Your Playlists</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<button ng-click="toggleSidebar()" type="button" class="btn btn-primary navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
+							</button>
+						</li>
+					</ul>
 				</div>
-				<!-- /.container-fluid -->
-			</nav>
-			<div id="mp_view" ui-view="mainContent">
+				<!-- /.navbar-collapse -->
+			</div>
+			<!-- /.container-fluid -->
+		</nav>
+		<div id="mp_view" ui-view="mainContent">
 
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><b>Top 10 Songs</b>
-								</div>
-								<div class="panel-body">
-
-								</div>
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"><b>Top 10 Songs</b>
 							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><b>Top 10 Albums</b>
-								</div>
-								<div class="panel-body">
+							<div class="panel-body">
 
-
-
-								</div>
-							</div>
-						</div>
-					</div>
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><b>Top 10 Artist</b>
-								</div>
-								<div class="panel-body">
-
-
-
-								</div>
 							</div>
 						</div>
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"><b>Top 10 Albums</b>
+							</div>
+							<div class="panel-body">
 
+
+
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"><b>Top 10 Artist</b>
+							</div>
+							<div class="panel-body">
+
+
+
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
+
 		</div>
-		<div class="footer">
-			<div class="container">
-				<p class="">HERE COMES THE ALBUM STUFF FROM THE SELECTED ARTIST</p>
+	</div>
+	<div class="footer">
+		<div class="container">
+			<p class="">HERE COMES THE ALBUM STUFF FROM THE SELECTED ARTIST</p>
+		</div>
+	</div>
+	<div id="mp_sidebar" ui-view="musicPlayer">
+
+		<!--this should move later to the player.html-->
+
+		<div>
+			<div>
+				<h1 class="text-center"> </h1>
 			</div>
-		</div>
-		<div id="mp_sidebar" ui-view="musicPlayer">
+			<div class="container-fluid">
+				<h1 class="text-center"> </h1>
+
+				<div class="row" ng-show="queue[0]">
+					<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
+						<img src="../images/7c6ff75c4d254da552e6337cba4908c5fbe1a588.jpg" alt="" class="img-rounded img-responsive ">
+					</div>
+					<div class="row">
+						<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
+							<h3 class="text-center text-white">{{queue[0].name}}</h3>
+							<h5 class="text-center text-white"><i>Album by {{queue[0].artists[0].name}}</i></h5>
+							<div>
+								<h1 class="text-center"> </h1>
+							</div>
+							<div class="progress" style=" margin-bottom: 0px; ">
+								<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
+								</div>
+							</div>
+
+							<div class="text-white">
+								<table class="table">
+									<tbody>
+										<tr>
+											<td align="left" style="border-top: 0 solid #ddd;">
+												00:00
+											</td>
+											<td style="border-top: 0 solid #ddd;">
+
+											</td>
+											<td align="right" style="border-top: 0 solid #ddd;">
+												00:00
+											</td>
+										</tr>
+										<tr>
+											<td style="border-top: 0 solid #ddd;"></td>
+										</tr>
+										<tr>
+											<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="right">
+												<a>
+													<i class="fa fa-step-backward fa-2x"></i>
+												</a>
+											</td>
+											<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="center">
+												<a>
+													<i class="fa fa-pause fa-3x"></i>
+												</a>
+
+											</td>
+											<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="left">
+												<a>
+													<i class="fa fa-step-forward fa-2x"></i>
+												</a>
+											</td>
+										</tr>
+									</tbody>
+								</table>
+								<hr/>
+							</div>								
+						</div>
+					</div>
+				</div>
+
+				<!-- QUEUE -->
+				<!-- Filters have to be applied (in ng-repeat & here) in order to show newly added song at the top -->
+
+				<h3 class="text-center text-white">Queue</h3>
+				<li class="span3" style='margin-left:10px;'>
+					<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
+						<div class="caption">
+							<div class="list-group-item" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<span class="glyphicon glyphicon-remove" ng-click="removeSongFromQueue(song)"></span></h5></div>
+						</div>
+					</div>
+				</li>
+			</div>
 
 			<!--this should move later to the player.html-->
 
-			<div>
-				<div>
-					<h1 class="text-center"> </h1>
-				</div>
-				<div class="container-fluid">
-					<h1 class="text-center"> </h1>
-
-					<div class="row">
-						<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
-							<img src="../images/7c6ff75c4d254da552e6337cba4908c5fbe1a588.jpg" alt="" class="img-rounded img-responsive ">
-						</div>
-						<div class="row">
-							<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
-								<h3 class="text-center text-white">Song</h3>
-								<h5 class="text-center text-white"><i>Album by Artist</i></h5>
-								<div>
-									<h1 class="text-center"> </h1>
-								</div>
-								<div class="progress" style=" margin-bottom: 0px; ">
-									<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
-									</div>
-								</div>
-
-								<div class="text-white">
-									<table class="table">
-										<tbody>
-											<tr>
-												<td align="left" style="border-top: 0 solid #ddd;">
-													00:00
-												</td>
-												<td style="border-top: 0 solid #ddd;">
-
-												</td>
-												<td align="right" style="border-top: 0 solid #ddd;">
-													00:00
-												</td>
-											</tr>
-											<tr>
-												<td style="border-top: 0 solid #ddd;"></td>
-											</tr>
-											<tr>
-												<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="right">
-													<a>
-														<i class="fa fa-step-backward fa-2x"></i>
-													</a>
-												</td>
-												<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="center">
-													<a>
-														<i class="fa fa-pause fa-3x"></i>
-													</a>
-
-												</td>
-												<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="left">
-													<a>
-														<i class="fa fa-step-forward fa-2x"></i>
-													</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</div>
-
-								<!-- QUEUE -->
-								<!-- Filters have to be applied (in ng-repeat & here) in order to show newly added song at the top -->
-								<hr/>
-								<h3 class="text-center text-white">Queue</h3>
-								<li class="span3" style='margin-left:10px;'>
-									<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
-										<div class="caption">
-											<div class="list-group-item" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" ng-click="removeSongFromQueue(song)" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5></div>
-										</div>
-									</div>
-								</li>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<!--this should move later to the player.html-->
-
-			</div>
 		</div>
 	</div>
+</div>

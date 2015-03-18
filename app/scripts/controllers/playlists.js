@@ -48,7 +48,6 @@
    $scope.listOfSongs.push(song);   
  }
 
- 
  $scope.addSongToTheQueue = function(song){
 
    $scope.queue.push(song);
@@ -63,7 +62,7 @@
     if($scope.playlists[i].name === playlist)
     { 
       for (var j = 0; j < $scope.playlists[i].songs.length; j++) {
-        console.log($scope.listOfSongs);
+        console.log($scope.playlists);
         if($scope.playlists[i].songs[j] === song)
         {            
           var index = $scope.playlists[i].songs.indexOf(song);
@@ -82,6 +81,12 @@ $scope.removeSongFromQueue = function(song){
       $scope.queue.splice(index, 1);
     } 
   };
+}
+
+$scope.getArtistsAlbum = function(artistId){     
+  Spotify.getArtistAlbums(artistId).then(function (data) {
+    console.log(data);
+});
 }
 
   // Limit items to be dropped in playlist1
