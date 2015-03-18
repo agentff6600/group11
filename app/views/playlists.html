@@ -1,27 +1,76 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-2">
+			<div class="square-container img-rounded" style="background-color:#777">
+			</div>
+			<h3 align="center">New Playlist</h3>
+		</div>
+		<div class="col-md-2">
+			<div class="square-container" style="background-color:#777">
+			</div>
+			<div class="">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Name your playlist...">
+					<span class="input-group-btn">
+        				<button class="btn btn-default" type="button">Ok!</button>
+      				</span>
+				</div>
+				<!-- /input-group -->
+			</div>
+			<!-- /.col-lg-6 -->
+		</div>
+		<div class="col-md-2">
+			<div class="square-container" style="background-color:#777">
+			</div>
+			<h3 align="center">My Playlist</h3>
+		</div>
+		<div class="col-md-2">
+			<div class="square-container" style="background-color:#777">
+			</div>
+			<h3 align="center">My Playlist</h3>
+		</div>
+		<div class="col-md-2">
+			<div class="square-container" style="background-color:#777">
+			</div>
+			<h3 align="center">My Playlist</h3>
+		</div>
+
+	</div>
+</div>
+<div class="voffset3"></div>
+
 <button ng-click="addNewPlaylist('Nova Playlista')">Add New Playlist</button>
 
+
+
 <div class='content'>
-	<div class="row-fluid">
-		<ul class="thumbnails">			
+	<div class="row">
+
+
+		<ul class="thumbnails">
 
 			<div ng-repeat="playlist in playlists">
 				<li class="span3" style='margin-left:10px;'>
-					<div class="thumbnail" data-drop="true" ng-model='playlist.songs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=playlist.songs])'}"  jqyoui-droppable="{multiple:true}">
+					<div class="thumbnail" data-drop="true" ng-model='playlist.songs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=playlist.songs])'}" jqyoui-droppable="{multiple:true}">
 						<div class="caption">
-							<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" ng-click="removeSongFromPlaylist(playlist.name, song)" jqyoui-draggable="{index: {{$index}},animate:true}"><h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5>
+							<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" ng-click="removeSongFromPlaylist(playlist.name, song)" jqyoui-draggable="{index: {{$index}},animate:true}">
+								<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5>
 							</div>
-						</div>					
+						</div>
 					</div>
 				</li>
-			</div>			
+			</div>
 		</ul>
 	</div>
 </div>
-</div>
+
+
 <div class="navbar-inner">
 	<div class="container form-inline" style="text-align: center;">
-		<div class="btn btn-droppable" ng-repeat="item in listOfSongs" data-drop="true" ng-model='listOfSongs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=listOfSongs])'}"  jqyoui-droppable="{index: {{$index}}}">
-			<div class="list-group-item" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listOfSongs" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-show="item.name"><h5 class="list-group-item-heading">{{item.track_number}}. {{item.name}}</h5></div>
+		<div class="btn btn-droppable" ng-repeat="item in listOfSongs" data-drop="true" ng-model='listOfSongs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=listOfSongs])'}" jqyoui-droppable="{index: {{$index}}}">
+			<div class="list-group-item" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listOfSongs" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-show="item.name">
+				<h5 class="list-group-item-heading">{{item.track_number}}. {{item.name}}</h5>
+			</div>
 		</div>
 	</div>
 </div>
