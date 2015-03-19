@@ -29,13 +29,13 @@
 											{{song.name}}
 										</td>
 										<td>
-											{{song.artist.name}} <i>artist name needed!</i>
+											{{song.artists[0].name}}
 										</td>
 										<td>
 											{{song.album.name}}
 										</td>
 										<td>
-											{{song.duration_ms}}
+											{{song.duration_ms /60000 | number:1}} min
 										</td>
 									</tr>
 								</tbody>
@@ -62,7 +62,7 @@
 										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
 									</div>
 									<h2>{{album.name}}</h2>
-									<h4>by {{album.artist.name}} <i>artist name needed</i></h4>
+									<h4>by {{album.artist.name  }} <i>artist name needed</i></h4>
 
 								</div>
 							</div>
@@ -109,7 +109,8 @@
 												</div>
 												<div class="voffset4"></div>
 												<div class="row">
-													<div class="col-md-12" ng-repeat="album in albums" ng-controller="SongsCtrl">
+												HELLO
+													<div class="col-md-12" ng-repeat="album in albums">
 														<span class="list-group-item" data-toggle="collapse" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
 											<div class="row">
 												<div class="col-md-4">

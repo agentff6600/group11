@@ -22,7 +22,7 @@
       Spotify.search($rootScope.query,'artist', {limit:'6'}).then(function (data) {     
         $rootScope.artists=[];
 
-        //console.log(data);
+        console.log(data);
 
         for (var i=0; i < data.artists.items.length; i++){
          $rootScope.artists.push(data.artists.items[i]);
@@ -33,10 +33,11 @@
       Spotify.search($rootScope.query,'album', {limit:'6'}).then(function (data) {           
         $rootScope.albums=[];      
 
-        //console.log(data);  
-
+        
         for (var j=0; j < data.albums.items.length; j++){
          $rootScope.albums.push(data.albums.items[j]);
+         console.log($rootScope.albums);  
+
        }
 
      }); 
@@ -44,10 +45,11 @@
       Spotify.search($rootScope.query,'track', {limit:'6'}).then(function (data) {     
         $rootScope.songs=[];
 
-        //console.log(data);
+        
 
         for (var h=0; h < data.tracks.items.length; h++){
          $rootScope.songs.push(data.tracks.items[h]);
+         //console.log($rootScope.songs[h].artists[0].name);
        }     
      }); 
 
