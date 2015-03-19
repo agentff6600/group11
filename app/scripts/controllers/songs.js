@@ -14,23 +14,23 @@ angular.module('musicPlayerApp')
         $scope.songs = data.items;  
         //console.log($scope.songs);        
 
-        console.log($scope.getAlbumImage(album));             
+        console.log(album);         
 
         for (var i = 0; i < $scope.songs.length; i++) {
-            $scope.songs[i]["images"] = $scope.getAlbumImage(album);
-            //console.log($scope.songs[i]);
+          getAlbumImage(i, album);
         };  
+
+        //$scope.$apply();      
       });
     }
 
-    $scope.getAlbumImage = function(albumId){    
-		var image;
+    function getAlbumImage(i, albumId){    
     	Spotify.getAlbum(albumId).then(function (data) {      		
-  			image = data.images[0];			
+  			$scope.songs[i]["images"] = data.images[0];
+        //$scope.$apply();			
   			//console.log(image);
+        console.log($scope.songs);
 		});
-
-		return image;
     }
   	
   });

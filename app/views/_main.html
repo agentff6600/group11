@@ -29,7 +29,7 @@
 							</form>		
 
 							<li ng-click="page = 'artists'" ng-class="{'active' : page == 'artists'}">
-								<a ng-href="#/artists">TEST Artists</a>
+								<a ng-href="#/artists">Artists</a>
 							</li>
 							<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
 								<a ng-href="#/playlists"> Your Playlists</a>
@@ -182,7 +182,7 @@
 						<li class="span3" style='margin-left:10px;'>
 							<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.drag:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
 								<div class="caption">
-									<div class="list-group-item" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
+									<div class="list-group-item" ng-repeat="song in queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
 										<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<span class="glyphicon glyphicon-remove" ng-click="removeSongFromQueue(song)"></span></h5>
 									</div>
 								</div>
