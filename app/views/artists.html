@@ -55,8 +55,8 @@
 																				<th></th>
 																			</tr>
 																		</thead>
-																		<tbody ng-repeat="song in songs">
-																			<tr ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+																		<tbody>
+																			<tr ng-repeat="song in songs" ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
 																				<td class="text-left">
 																					<b>{{song.track_number}}.</b>
 																				</td>
@@ -67,8 +67,8 @@
 																					{{song.duration_ms}}
 																				</td>
 																				<td class="text-right text-nowrap">
-																					<button class="btn btn-default btn-sm">
-																						<span class="glyphicon glyphicon-plus" ng-click="addSongToTheList(song)"></span>
+																					<button class="btn btn-default btn-sm" ng-click="addSongToTheList(song)">
+																						<span class="glyphicon glyphicon-plus" ></span>
 																					</button>
 																				</td>
 																			</tr>
