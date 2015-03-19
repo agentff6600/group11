@@ -1,31 +1,70 @@
+<!--SONGS SEARCH RESULTS-->
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
 				<div class="panel-heading">Songs</div>
 				<div class="panel-body">
-
-					<div ng-repeat="song in $root.songs">
-						{{song.name}}
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-md-12">
-			<div class="panel panel-default">
-				<div class="panel-heading">Albums</div>
-				<div class="panel-body">
-					<div ng-model="albums">
-						<div ng-repeat="album in $root.albums">
-							{{album.name}}
+					<div class="row">
+						<div class="col-md-12">
+							<table class="table table-hover">
+								<thead>
+									<tr>
+										<th>Title</th>
+										<th>By</th>
+										<th>Duration</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr ng-repeat="song in $root.songs">
+										<td>
+											{{song.name}}
+										</td>
+										<td>
+											{{song.artists(name)}}
+										</td>
+										<td>
+											{{song.duration_ms}}
+										</td>
+									</tr>
+								</tbody>
+							</table>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<!--ALBUM SEARCH RESULTS	-->
+
+	<div class="row">
+		<div class="col-md-12">
+			<div class="panel panel-default">
+				<div class="panel-heading">Albums</div>
+				<div class="panel-body">
+					<div ng-model="albums">
+						<div class="row">
+							<div ng-repeat="album in $root.albums">
+								<div class="col-md-2">
+									<div class="square-container img-rounded">
+										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
+									</div>
+									<h2>{{album.name}}</h2>
+									<h4>by {{artist.name}}</h4>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--	ARTIST SEARCH RESULTS-->
+
 	<div class="row">
 		<div class="col-md-12">
 			<div class="panel panel-default">
@@ -36,12 +75,54 @@
 							<div ng-repeat="artist in $root.artists">
 								<div class="col-md-2">
 									<div class="thumbnail">
-										<div class="square-container img-circle ">
+										<div class="square-container img-circle" type="button" data-toggle="modal" data-target=".{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
 											<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
 										</div>
 									</div>
-									<h2 class="text-center"><b>{{artist.name}}</b></h2>
+									<h2 class="text-center">{{artist.name}}</h2>
 								</div>
+
+
+								<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+									<div class="modal-dialog">
+										<div class="modal-content">
+											<div class="modal-body">
+												<div class="row">
+													<div class="col-md-offset-3 col-md-6">
+														<div class="thumbnail">
+															<div class="square-container img-circle ">
+																<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
+															</div>
+														</div>
+														<h1 class="text-center"><b>{{artist.name}}</b></h1>
+													</div>
+												</div>
+												<div class="voffset4"></div>
+												<div class="row">
+													<div class="col-md-12" ng-repeat="album in albums" ng-controller="SongsCtrl">
+														<span class="list-group-item" data-toggle="collapse" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="voffset"></div>
+													<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
+												</div>
+												<div class="col-md-8">
+													<div class="caption">
+														<h1>{{album.name}}</h1>
+														<h4>by {{artist.name}}</h4>
+													</div>
+												</div>
+											</div>
+										</span>
+
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
 							</div>
 						</div>
 					</div>

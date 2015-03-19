@@ -30,7 +30,7 @@
 
      });  
 
-      Spotify.search($rootScope.query,'album', {limit:'5'}).then(function (data) {           
+      Spotify.search($rootScope.query,'album', {limit:'6'}).then(function (data) {           
         $rootScope.albums=[];      
 
         //console.log(data);  
@@ -41,7 +41,7 @@
 
      }); 
       
-      Spotify.search($rootScope.query,'track', {limit:'5'}).then(function (data) {     
+      Spotify.search($rootScope.query,'track', {limit:'6'}).then(function (data) {     
         $rootScope.songs=[];
 
         //console.log(data);
