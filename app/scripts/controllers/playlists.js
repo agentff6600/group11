@@ -44,6 +44,8 @@
     console.log($scope.playlists);
     console.log($scope.queue);
   }
+  
+$("#thumbnail").remove();
 
   $scope.addSongToPlaylist = function(playlist, song){
     for (var i = 0; i < $scope.playlists.length; i++) {    
