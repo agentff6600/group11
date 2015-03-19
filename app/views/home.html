@@ -21,9 +21,9 @@
 								<tbody>
 									<tr ng-repeat="song in $root.songs">
 										<td width="7%">
-												<div class="square-container img">
-													<img ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
-												</div>
+											<div class="square-container img">
+												<img ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+											</div>
 										</td>
 										<td>
 											{{song.name}}
@@ -100,7 +100,7 @@
 												<div class="row">
 													<div class="col-md-offset-3 col-md-6">
 														<div class="thumbnail">
-															<div class="square-container img-circle ">
+															<div class="square-container img-circle">
 																<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
 															</div>
 														</div>
@@ -110,7 +110,7 @@
 												<div class="voffset4"></div>
 												<div class="row">
 													<div class="col-md-12" ng-repeat="album in albums" ng-controller="SongsCtrl">
-														<span class="list-group-item" data-toggle="collapse" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
+														<span class="list-group-item" data-toggle="collapse" data-target=".{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
 											<div class="row">
 												<div class="col-md-4">
 													<div class="voffset"></div>
@@ -124,15 +124,65 @@
 												</div>
 											</div>
 										</span>
+														<div id="" class="collapse {{album.id}}">
+															<div class="well">
+																<div class="caption">
+																	<button class="btn btn-primary col-md-12" type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play Album</button>
+																</div>
+																<div class="voffset5">
+																	<div class="row">
+																		<div class="col-md-12">
+																			<table class="table table-hover">
+																				<thead>
+																					<tr>
+																						<th>N°</th>
+																						<th>Title</th>
+																						<th>Duration</th>
+																						<th></th>
+																					</tr>
+																				</thead>
+																				<tbody>
+																					<tr ng-repeat="song in songs">
+																						<td>
+																							<b>{{song.track_number}}.</b>
+																						</td>
+																						<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+																							{{song.name}}
+																						</td>
+																						<td>
+																							{{song.duration_ms}}
+																						</td>
+																						<td class="text-right text-nowrap">
 
+																							<div class="btn-group">
+																								<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+																									<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+																								</button>
+																								<ul class="dropdown-menu" role="menu">
+																									<li><a ng-click="addSongToTheList(song)">Action</a>
+																									</li>
+																									<li><a>Another action</a>
+																									</li>
+																									<li><a>Something else here</a>
+																									</li>
+																								</ul>
+																							</div>
+																						</td>
+																					</tr>
+																				</tbody>
+																			</table>
+																		</div>
+																	</div>
+																</div>
+																<!-- /.modal-content -->
+															</div>
+														</div>
 													</div>
 												</div>
 											</div>
 										</div>
 									</div>
 								</div>
-
-
 							</div>
 						</div>
 					</div>
