@@ -113,45 +113,40 @@ body {
 	margin-right: 10px;
 }
 
-//Color Change
+//Variable Changes
 
 @brand-primary: #ff9900;
+@border-radius-base:        2px;
+@border-radius-large:       2px;
+@border-radius-small:       2px;
 
-.navbar-default .navbar-brand {
-    color: #ff9900;
+// Navbar brand label
+@navbar-default-brand-color:               @brand-primary;
+@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
+@navbar-default-brand-hover-bg:            transparent;
+
+
+.thumbnail {
+  border: 0px solid #ddd;
+}
+
+//navbar height / centering / navbar form width
+
+@navbar-height:                    80px;
+@navbar-default-color:             #ffffff;
+@navbar-default-bg:                #ffffff;
+@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
+
+@media (min-width: 768px){
+	
+.navbar-form .form-control {
+  display: inline-block;
+  width: 300px;
+  vertical-align: middle;
+}
 }
 
 
-//navbar height
-
-.navbar-default {
-    min-height: 80px;
-}
-
-.navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 80px;
-}
-
-.navbar-nav > li > a {
-    padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 80px;
-}
-
-.navbar-brand{
-    line-height: 50px;
-}
-
-.navbar-form {
-  margin-top: 23px;
-  margin-bottom: 23px;
-}
-
-.navbar-btn {
-  margin-top: 22px;
-}
 //Vertical Spacers
 
 .voffset  { margin-top: 2px; }
