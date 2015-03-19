@@ -7,11 +7,11 @@
 				</div>
 				<div class="voffset3"></div>
 				<div class="input-group">
-					<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">				
+					<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="button" ng-click="addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-						</button>
+					</button>
 					</span>
 				</div>
 			</div>
@@ -35,78 +35,62 @@
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">			
-			<div class='content'>
-				<!--<div class="row">
-					<ul class="thumbnails">
-						<div ng-repeat="playlist in playlists">
-							<li class="span3" style='margin-left:10px;'>
-								<div class="thumbnail" data-drop="true" ng-model='playlist.songs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=playlist.songs])'}" jqyoui-droppable="{multiple:true}">
-									<div class="caption">
-										<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-											<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}} <span class="glyphicon glyphicon-remove" ng-click="removeSongFromPlaylist(playlist.name, song)"></span></h5>
-											<div class="list-group-item" ng-repeat="song in playlist.songs" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlist.songs" ng-click="removeSongFromPlaylist(playlist.name, song)" jqyoui-draggable="{index: {{$index}},animate:true}">
-												<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}</h5>
-											</div>
-										</div>
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
+				</button>
+				<h4 class="modal-title">TEST</h4>
+			</div>
+
+			<div class="modal-body">
+
+				<div class='content'>
+
+
+					<table class="table table-hover">
+						<thead>
+							<tr>
+								<th>N°</th>
+								<th>Title</th>
+								<th>Duration</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr ng-repeat="song in listOfSongs">
+								<td>
+									<b>{{song.track_number}}.</b>
+								</td>
+								<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+									{{song.name}}
+								</td>
+								<td>
+									{{song.duration_ms}}
+								</td>
+								<td class="text-right text-nowrap">
+
+									<div class="btn-group">
+										<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+											<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li><a ng-click="addSongToTheList(song)">Action</a>
+											</li>
+											<li><a>Another action</a>
+											</li>
+											<li><a>Something else here</a>
+											</li>
+										</ul>
 									</div>
-								</li>
-							</div>
-						</ul>
-					</div>
+
+								</td>
+							</tr>
+						</tbody>
+					</table>
+
+
 				</div>
-				 <div class="navbar-inner">
-					<div class="container form-inline" style="text-align: center;">
-						<div class="btn btn-droppable" ng-repeat="item in listOfSongs" data-drop="true" ng-model='listOfSongs' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=listOfSongs])'}" jqyoui-droppable="{index: {{$index}}}">
-							<div class="list-group-item" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="listOfSongs" jqyoui-draggable="{index: {{$index}},placeholder:true,animate:true}" ng-show="item.name">
-								<h5 class="list-group-item-heading">{{item.track_number}}. {{item.name}}</h5>
-							</div>
-						</div>
-					</div>
-				</div> -->
-
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>N°</th>
-							<th>Title</th>
-							<th>Duration</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="song in listOfSongs">
-							<td>
-								<b>{{song.track_number}}.</b>
-							</td>
-							<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-								{{song.name}}
-							</td>
-							<td>
-								{{song.duration_ms}}
-							</td>
-							<td class="text-right text-nowrap">
-
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
-										<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a ng-click="addSongToTheList(song)">Action</a>
-										</li>
-										<li><a >Another action</a>
-										</li>
-										<li><a >Something else here</a>
-										</li>
-									</ul>
-								</div>
-
-							</td>
-						</tr>
-					</tbody>
-				</table>
-
-
 			</div>
 		</div>
 	</div>
+</div>
