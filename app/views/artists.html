@@ -1,114 +1,126 @@
 <div class="container-fluid">
-
-<div class="container_artist">
-	<div class="row">
-
-		<div ng-repeat="artist in artists">
-
-			<div class="col-xs-6 col-sm-4 col-md-2" ng-controller="AlbumsCtrl">
-				<a ng-href="" type="button" data-toggle="collapse" data-target="#{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
+	<div class="container_artist">
+		<div class="row">
+			<div ng-repeat="artist in artists" class="col-xs-6 col-sm-4 col-md-2" ng-controller="AlbumsCtrl">
+				<a ng-href="" type="button" data-toggle="modal" data-target=".{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
 					<div class="thumbnail">
 						<div class="square-container img-circle">
 							<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
 						</div>
+					</div>
 				</a>
 				<h4 class="text-center"><b>{{artist.name}}</b></h4>
-				</div>
-				<div class="container-fluid">
-					<div class="row">
-						<div class="collapse text-center" id="{{artist.id}}">
-							<div class="well">
-								<div class="list-group" ng-repeat="album in albums" ng-controller="SongsCtrl">
-									<a ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
-										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded" height="50" width="50">
-										<h4 class="text-center list-group-item-heading">{{album.name}}</h4>
-									</a>
 
-									<div id="{{album.id}}" class="modal fade text-left" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-										<div class="modal-dialog">
 
-											<div class="modal-content">
+				<!--modal-->
 
-												<div class="modal-body">
-													<div class="row">
-														<div class="col-md-6">
-															<div class="voffset"></div>
-															<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
-														</div>
-														<div class="col-md-6">
-														<div class="caption">
-															<h1>{{album.name}}</h1>
-															<h4>by {{artist.name}}</h4>
-															</div>
-														</div>
+				<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+					<div class="modal-dialog modal-lg">
+
+						<div class="modal-content">
+
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-12" ng-repeat="album in albums" ng-controller="SongsCtrl">
+										<a ng-href="" class="list-group-item" data-toggle="collapse" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
+											<div class="row">
+												<div class="col-md-4">
+													<div class="voffset"></div>
+													<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
+												</div>
+												<div class="col-md-6">
+													<div class="caption">
+														<h1>{{album.name}}</h1>
+														<h4>by {{artist.name}}</h4>
 													</div>
-													<div class="voffset3">
-
-
+													<!--
 														<div class="input-group">
 															<span class="input-group-btn">
-																<button class="play-all btn btn-primary" type="button"><span class="glyphicon glyphicon-play-circle" aria-hidden="true"></span>
-																</button>
+																	<span class="h4">Play all songs  </span>
+															<button class="play-all btn btn-primary" type="button"><span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+															</button>
+
 															</span>
 														</div>
-
-
-
-														<div class="row">
-																<div class="col-md-12" >
-																	<table class="table table-hover">
-																		<thead>
-																			<tr>
-																				<th>N°</th>
-																				<th>Title</th>
-																				<th>Duration</th>
-																				<th></th>
-																			</tr>
-																		</thead>
-																		<tbody>
-																			<tr ng-repeat="song in songs">
-																				<td>
-																					<b>{{song.track_number}}.</b>
-																				</td>
-																				<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-																					{{song.name}}
-																				</td>
-																																								<td>
-																					{{song.duration_ms}}
-																				</td>
-																				<td class="text-right text-nowrap">
-																					<button class="btn btn-default btn-sm" ng-click="addSongToTheList(song)">
-																						<span class="glyphicon glyphicon-plus" ></span>
-																					</button>
-																				</td>
-																			</tr>
-																		</tbody>
-																	</table>
-																</div>
-															</div>
-														</div>
-													</div>
+-->
 
 												</div>
-
 											</div>
+										</a>
+
+
+										<div id="{{album.id}}" class="collapse">
+
+
+
+											<div class="voffset3">
+
+												<div class="row">
+													<div class="col-md-12">
+														<table class="table table-hover">
+															<thead>
+																<tr>
+																	<th>N°</th>
+																	<th>Title</th>
+																	<th>Duration</th>
+																	<th></th>
+																</tr>
+															</thead>
+															<tbody>
+																<tr ng-repeat="song in songs">
+																	<td>
+																		<b>{{song.track_number}}.</b>
+																	</td>
+																	<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+																		{{song.name}}
+																	</td>
+																	<td>
+																		{{song.duration_ms}}
+																	</td>
+																	<td class="text-right text-nowrap">
+																	
+																		<div class="btn-group">
+																			<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+																				<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+																			</button>
+																			<ul class="dropdown-menu" role="menu">
+																				<li><a ng-click="addSongToTheList(song)">Action</a>
+																				</li>
+																				<li><a >Another action</a>
+																				</li>
+																				<li><a >Something else here</a>
+																				</li>
+																			</ul>
+																		</div>
+
+																	</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</div>
+
+
+
+
 											<!-- /.modal-content -->
 
 										</div>
-										<!-- /.modal-dialog -->
+
+
 									</div>
 
 								</div>
-
 							</div>
 						</div>
 					</div>
+
+
+
 				</div>
+
 			</div>
-
-
-
 		</div>
 	</div>
-</div>
 </div>
