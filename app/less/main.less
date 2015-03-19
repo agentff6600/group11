@@ -5,8 +5,7 @@
 body {
 	padding-top: 0;
 	padding-bottom: 20px;
-	
-//	overflow: hidden;
+	//	overflow: hidden;
 }
 /* Everything but the jumbotron gets side spacing for mobile first views */
 
@@ -33,16 +32,14 @@ body {
 .footer {
 	background-color: #777;
 	position: fixed;
-    height: 40%;
-    bottom: 0;
-    width: 100%;
-	
+	height: 40%;
+	bottom: 0;
+	width: 100%;
 }
 /* MAIN STYLES */
 
 #mp_main {
 	margin-right: 300px;
-
 }
 
 #mp_sidebar {
@@ -86,7 +83,6 @@ body {
 //		margin-bottom: 30px;
 //	}
 //}
-
 .text-white {
 	color: white;
 }
@@ -114,75 +110,97 @@ body {
 }
 
 //Variable Changes
-
 @brand-primary: #ff9900;
-@border-radius-base:        2px;
-@border-radius-large:       2px;
-@border-radius-small:       2px;
-
+@border-radius-base: 2px;
+@border-radius-large: 2px;
+@border-radius-small: 2px;
 // Navbar brand label
-@navbar-default-brand-color:               @brand-primary;
-@navbar-default-brand-hover-color:         darken(@navbar-default-brand-color, 10%);
-@navbar-default-brand-hover-bg:            transparent;
-
+@navbar-default-brand-color: @brand-primary;
+@navbar-default-brand-hover-color: darken(@navbar-default-brand-color,
+10%);
+@navbar-default-brand-hover-bg: transparent;
 // Well
-@well-bg:                     rgba(255, 102, 0, 0.1);
-@well-border:                 darken(@well-bg, 15%);
-
+@well-bg: rgba(255,
+102,
+0,
+0.1);
+@well-border: darken(@well-bg,
+15%);
 .thumbnail {
-  border: 0px solid #ddd;
+	border: 0px solid #ddd;
 }
 
 //navbar height / centering / navbar form width
-
-@navbar-height:                    80px;
-@navbar-default-color:             #ffffff;
-@navbar-default-bg:                #ffffff;
-@navbar-default-border:            darken(@navbar-default-bg, 6.5%);
-
-@media (min-width: 768px){
-	
-.navbar-form .form-control {
-  display: inline-block;
-  width: 300px;
-  vertical-align: middle;
+@navbar-height: 80px;
+@navbar-default-color: #ffffff;
+@navbar-default-bg: #ffffff;
+@navbar-default-border: darken(@navbar-default-bg,
+6.5%);
+@media (min-width: 768px) {
+	.navbar-form .form-control {
+		display: inline-block;
+		width: 300px;
+		vertical-align: middle;
+	}
 }
-}
-
 
 //Vertical Spacers
+.voffset {
+	margin-top: 2px;
+}
 
-.voffset  { margin-top: 2px; }
-.voffset1 { margin-top: 5px; }
-.voffset2 { margin-top: 10px; }
-.voffset3 { margin-top: 15px; }
-.voffset4 { margin-top: 30px; }
-.voffset5 { margin-top: 40px; }
-.voffset6 { margin-top: 60px; }
-.voffset7 { margin-top: 80px; }
-.voffset8 { margin-top: 100px; }
-.voffset9 { margin-top: 150px; }
+.voffset1 {
+	margin-top: 5px;
+}
+
+.voffset2 {
+	margin-top: 10px;
+}
+
+.voffset3 {
+	margin-top: 15px;
+}
+
+.voffset4 {
+	margin-top: 30px;
+}
+
+.voffset5 {
+	margin-top: 40px;
+}
+
+.voffset6 {
+	margin-top: 60px;
+}
+
+.voffset7 {
+	margin-top: 80px;
+}
+
+.voffset8 {
+	margin-top: 100px;
+}
+
+.voffset9 {
+	margin-top: 150px;
+}
 
 //squared
-
-.square-container{
-    position:relative;
-    overflow:hidden;
-    padding-bottom:100%;
-	
+.square-container {
+	position: relative;
+	overflow: hidden;
+	padding-bottom: 100%;
 }
-.square-container img{
-    position: absolute;
+
+.square-container img {
+	position: absolute;
 	height: 100%;
 }
-
-
 
 .drag {
 	cursor: -webkit-grab;
 	cursor: -moz-grab;
 }
-
 
 ///* ARTISTS-VIEW STYLES */
 //.container_artist{
@@ -191,7 +209,40 @@ body {
 //	padding-top: 30px;
 //}
 //
+//Playlist preview pics
+.top-left {
+	background-color: red;
+	position: absolute;
+	top: 0%;
+	bottom: 50%;
+	left: 0%;
+	right: 50%;
+}
 
+.top-right {
+	background-color: blue;
+	position: absolute;
+	top: 0;
+	bottom: 50%;
+	left: 50%;
+	right: 0;
+}
 
+.bottom-left {
+	background-color: green;
+	position: absolute;
+	top: 50%;
+	bottom: 0%;
+	left: 0;
+	right: 50%;
+}
 
-
+.bottom-right {
+	background-color: purple;
+	position: absolute;
+	top: 50%;
+	bottom: 0;
+	left: 50%;
+	right: 0%;
+	;
+}
