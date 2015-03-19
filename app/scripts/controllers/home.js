@@ -19,7 +19,7 @@
     $location.path('home'); 
     if($rootScope.query != "")
     {
-      Spotify.search($rootScope.query,'artist', {limit:'5'}).then(function (data) {     
+      Spotify.search($rootScope.query,'artist', {limit:'6'}).then(function (data) {     
         $rootScope.artists=[];
 
         //console.log(data);
