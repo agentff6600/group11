@@ -63,6 +63,8 @@
     console.log($scope.queue);
 
   }
+  
+$("#thumbnail").remove();
 
   $scope.addSongToPlaylist = function(id, song){
 
