@@ -17,9 +17,15 @@
   		$scope.artists=[];
   		$scope.albums=[];
   		$scope.songs=[];
-  		$scope.artists.push(data.artists.items);
-  		$scope.albums.push(data.albums.items);
-  		$scope.songs.push(data.tracks.items); 
+  		for (var i=0; i<data.artists.items.length; i++){
+  			$scope.artists.push(data.artists.items[i]);
+  		}
+		for (var i=0; i<data.albums.items.length; i++){
+  			$scope.albums.push(data.albums.items[i]);
+  		}
+  		for (var i=0; i<data.tracks.items.length; i++){
+  			$scope.songs.push(data.tracks.items[i]);
+  		}
   		console.log($scope.artists);
   		console.log($scope.albums);
   		console.log($scope.songs);
