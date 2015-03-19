@@ -33,10 +33,9 @@
 							</li>
 						-->
 
-						<form class="navbar-form navbar-left" role="search">
-							<div class="form-group">
-								<input type="text" class="form-control " placeholder="Search songs, albums, artists...">
-							</div>
+						<form class="navbar-form navbar-left" role="search" ng-controller="HomeCtrl" >
+									<input type="text" ng-model="query" ng-keydown="searchFor()" class="form-control" placeholder="Search"> 
+			
 						</form>
 						<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
 							<a ng-href="#/playlists"> Your Playlists</a>
