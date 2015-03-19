@@ -18,7 +18,7 @@ angular.module('musicPlayerApp')
 
         for (var i = 0; i < $scope.songs.length; i++) {
             $scope.songs[i]["images"] = $scope.getAlbumImage(album);
-            console.log($scope.songs[i]);
+            //console.log($scope.songs[i]);
         };  
       });
     }
@@ -27,7 +27,7 @@ angular.module('musicPlayerApp')
 		var image;
     	Spotify.getAlbum(albumId).then(function (data) {      		
   			image = data.images[0];			
-  			console.log(image);
+  			//console.log(image);
 		});
 
 		return image;
