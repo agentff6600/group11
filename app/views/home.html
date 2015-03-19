@@ -1,10 +1,12 @@
-<div class="container-fluid">
+<div class="container-fluid" ng-controller="HomeCtrl">
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-12" >
 			<div class="panel panel-default">
 				<div class="panel-heading">Songs</div>
 				<div class="panel-body">
-
+					<div ng-repeat"song in songs">
+						{{song.name}}
+					</div>
 				</div>
 			</div>
 		</div>
@@ -14,7 +16,9 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Albums</div>
 				<div class="panel-body">
-
+					<div ng-repeat"album in slbums">
+						{{album.name}}
+					</div>
 
 
 				</div>
@@ -26,11 +30,13 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Artists</div>
 				<div class="panel-body">
-
+					<div ng-repeat"artist in artists">
+						{{artist.name}}
+					</div>
 
 
 				</div>
 			</div>
 		</div>
-	</div>
+	</div> 
 </div>

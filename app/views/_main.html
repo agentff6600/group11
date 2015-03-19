@@ -33,6 +33,7 @@
 							</li>
 -->
 
+<<<<<<< HEAD
 
 							<form class="navbar-form navbar-left" role="search">
 								<div class="form-group">
@@ -54,6 +55,22 @@
 						</ul>
 					</div>
 					<!-- /.navbar-collapse -->
+=======
+						<form class="navbar-form navbar-left" role="search" ng-controller="HomeCtrl" >
+									<input type="text" ng-model="query" ng-keydown="searchFor()" class="form-control" placeholder="Search"> 
+			
+						</form>
+						<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
+							<a ng-href="#/playlists"> Your Playlists</a>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav navbar-right">
+						<li>
+							<button ng-click="toggleSidebar()" type="button" class="btn btn-primary navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
+							</button>
+						</li>
+					</ul>
+>>>>>>> 8a927ca9c5b3270b995cec3f6303276218451b03
 				</div>
 				<!-- /.container-fluid -->
 			</nav>
