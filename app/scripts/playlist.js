@@ -14,8 +14,6 @@ angular.module('musicPlayerApp')
 
     Playlist.prototype.getSongs = function() {
         var _this = this;
-
-        _this.songs.push("Something");
         
         return _this.songs;
     };
