@@ -6,48 +6,48 @@
  * Controller of the musicPlayerApp
  */
  angular.module('musicPlayerApp')
- .controller('HomeCtrl', function ($scope, Spotify, $location) {
+ .controller('HomeCtrl', function ($scope, $rootScope, Spotify, $location) {
   console.log("home controller");
 
-  $scope.query;
-  $scope.artists=[];
-  $scope.albums=[];
-  $scope.songs=[];
+  $rootScope.query;
+  $rootScope.artists=[];
+  $rootScope.albums=[];
+  $rootScope.songs=[];
 
   $scope.searchFor = function(){  
-
-    //$location.path('home'); 
-    if($scope.query != "")
+    //console.log($rootScope.query);
+    $location.path('home'); 
+    if($rootScope.query != "")
     {
-      Spotify.search($scope.query,'artist', {limit:'5'}).then(function (data) {     
-        $scope.artists=[];
+      Spotify.search($rootScope.query,'artist', {limit:'5'}).then(function (data) {     
+        $rootScope.artists=[];
 
-        console.log(data);
+        //console.log(data);
 
         for (var i=0; i < data.artists.items.length; i++){
-         $scope.artists.push(data.artists.items[i]);
+         $rootScope.artists.push(data.artists.items[i]);
        }
 
      });  
 
-      Spotify.search($scope.query,'album', {limit:'5'}).then(function (data) {           
-        $scope.albums=[];      
+      Spotify.search($rootScope.query,'album', {limit:'5'}).then(function (data) {           
+        $rootScope.albums=[];      
 
-        console.log(data);  
+        //console.log(data);  
 
         for (var j=0; j < data.albums.items.length; j++){
-         $scope.albums.push(data.albums.items[j]);
+         $rootScope.albums.push(data.albums.items[j]);
        }
 
      }); 
       
-      Spotify.search($scope.query,'track', {limit:'5'}).then(function (data) {     
-        $scope.songs=[];
+      Spotify.search($rootScope.query,'track', {limit:'5'}).then(function (data) {     
+        $rootScope.songs=[];
 
-        console.log(data);
+        //console.log(data);
 
         for (var h=0; h < data.tracks.items.length; h++){
-         $scope.songs.push(data.tracks.items[h]);
+         $rootScope.songs.push(data.tracks.items[h]);
        }     
      }); 
 

@@ -1,12 +1,12 @@
-<form class="navbar-form navbar-left">								
-				<input type="text" ng-model="query" ng-keyup="searchFor()" class="form-control" placeholder="Search">											
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-md-12" >
 			<div class="panel panel-default">
 				<div class="panel-heading">Songs</div>
 				<div class="panel-body">
-					<div ng-repeat="song in songs">
+			
+					<div ng-repeat="song in $root.songs">
 							{{song.name}}
 						</div>
 				</div>
@@ -19,7 +19,7 @@
 				<div class="panel-heading">Albums</div>
 				<div class="panel-body">
 					<div ng-model="albums">
-						<div ng-repeat="album in albums">
+						<div ng-repeat="album in $root.albums">
 							{{album.name}}
 						</div>
 					</div>
@@ -33,8 +33,17 @@
 				<div class="panel-heading">Artists</div>
 				<div class="panel-body">
 					<div ng-model="artists">
-						<div ng-repeat="artist in artists">
-							{{artist.name}}
+						<div ng-repeat="artist in $root.artists">
+							<div class="row">
+									<div class="col-md-offset-3 col-md-6">
+										<div class="thumbnail">
+											<div class="square-container img-circle ">
+												<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
+											</div>
+										</div>
+										<h1 class="text-center"><b>{{artist.name}}</b></h1>
+									</div>
+								</div>
 						</div>
 					</div>
 				</div>
@@ -42,4 +51,4 @@
 		</div>
 	</div> 
 </div>
-</form>		
+	
