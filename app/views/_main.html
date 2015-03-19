@@ -20,10 +20,11 @@
 					<!-- Collect the nav links, forms, and other content for toggling -->
 					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 						<ul class="nav navbar-nav">
-							<form class="navbar-form navbar-left" role="search" ng-controller="HomeCtrl">
-								<input type="text" ng-model="query" ng-keydown="searchFor()" class="form-control" placeholder="Search">
-
-							</form>
+							<form class="navbar-form navbar-left" ng-controller="HomeCtrl" ng-keyup="searchFor()">
+								
+							<input type="text" ng-model="query" class="form-control" placeholder="Search">
+							
+							</form>		
 
 							<li ng-click="page = 'artists'" ng-class="{'active' : page == 'artists'}">
 								<a ng-href="#/artists">TEST Artists</a>

@@ -6,6 +6,19 @@
  * Controller of the musicPlayerApp
  */
  angular.module('musicPlayerApp')
+ .directive('ngEnter', function () {
+  return function (scope, element, attrs) {
+    element.bind("keydown keypress", function (event) {
+      if(event.which === 13) {
+        scope.$apply(function (){
+          scope.$eval(attrs.ngEnter);
+        });
+
+        event.preventDefault();
+      }
+    });
+  };
+})
  .controller('PlaylistsCtrl', function ($scope, Spotify, Playlist) {
    console.log("playlists controller");
 
@@ -25,9 +38,8 @@
 
    var i = 0;
 
-   $scope.addNewPlaylist = function(name){      
-    i++;
-    $scope.playlists.push(new Playlist(name + i));
+   $scope.addNewPlaylist = function(name){          
+    $scope.playlists.push(new Playlist(name));
 
     console.log($scope.playlists);
     console.log($scope.queue);
@@ -86,8 +98,9 @@ $scope.removeSongFromQueue = function(song){
 $scope.getArtistsAlbum = function(artistId){     
   Spotify.getArtistAlbums(artistId).then(function (data) {
     console.log(data);
-});
+  });
 }
+
 
   // Limit items to be dropped in playlist1
   $scope.optionsList1 = {
