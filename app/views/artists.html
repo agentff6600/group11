@@ -56,14 +56,14 @@
 																			</tr>
 																		</thead>
 																		<tbody>
-																			<tr ng-repeat="song in songs" ng-href="" class="list-group-item" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-																				<td class="text-left">
+																			<tr ng-repeat="song in songs">
+																				<td>
 																					<b>{{song.track_number}}.</b>
 																				</td>
-																				<td class="">
+																				<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
 																					{{song.name}}
 																				</td>
-																																								<td class="">
+																																								<td>
 																					{{song.duration_ms}}
 																				</td>
 																				<td class="text-right text-nowrap">
