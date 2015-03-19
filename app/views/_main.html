@@ -5,6 +5,8 @@
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
 					<div class="navbar-header">
+						<button ng-click="toggleSidebar()" type="button" class="navbar-toggle collapsed btn navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
+						</button>
 						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
@@ -173,7 +175,7 @@
 
 						<h3 class="text-center text-white">Queue</h3>
 						<li class="span3" style='margin-left:10px;'>
-							<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.drag:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
+							<div class="thumbnail" data-drop="true" ng-model='queue' data-jqyoui-options="{accept:'.list-group-item:not([ng-model=queue])'}" jqyoui-droppable="{multiple:true}">
 								<div class="caption">
 									<div class="list-group-item" ng-repeat="song in queue" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
 										<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<span class="glyphicon glyphicon-remove" ng-click="removeSongFromQueue(song)"></span></h5>
