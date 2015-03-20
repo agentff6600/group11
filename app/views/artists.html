@@ -82,12 +82,9 @@
 																					<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
 																				</button>
 																				<ul class="dropdown-menu" role="menu">
-																					<li><a ng-click="addSongToTheList(song)">Action</a>
+																					<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
 																					</li>
-																					<li><a>Another action</a>
-																					</li>
-																					<li><a>Something else here</a>
-																					</li>
+																					<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 																				</ul>
 																			</div>
 																		</td>
