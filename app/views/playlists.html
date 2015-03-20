@@ -50,7 +50,7 @@
 		<div class="modal-content">
 			<div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">{{playlist.name}}TITLE</h4>
+        <h4 class="modal-title" id="myModalLabel">{{playlists[$root.plId].playlist.name}}</h4>
       </div>
 			<div class="model-body">
 				<div class="container-fluid well">
@@ -69,13 +69,13 @@
 									<tr ng-repeat="song in playlists[$root.plId].playlist.songs">
 										<td width="7%">
 											<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-												<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+												<a ng-href="" ng-click="$root.passSrc(song.preview_url)" ><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
 													<i class="fa fa-play fa-2x  centered"></i>
 												</a>
 											</div>
 										</td>
 										<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlists[$root.plId].playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-											{{song.name}}
+											{{song.name}}											
 										</td>
 										<td>
 											{{song.duration_ms}}

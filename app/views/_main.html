@@ -1,6 +1,7 @@
 <div id="mp_wrapper" class="container-fluid" ng-class="{'sidebar-closed' : !sidebar}" ng-controller="PlaylistsCtrl">
 	<div class="row">
 		<div id="mp_main">
+
 			<nav class="navbar navbar-default">
 				<div class="container-fluid">
 					<!-- Brand and toggle get grouped for better mobile display -->
@@ -38,10 +39,6 @@
 
 
 			<div id="mp_view" ui-view="mainContent">
-
-				<div id="player">
-					<iframe id="iframe" style="display:none" src=""></iframe>
-				</div>
 
 				<div class="container-fluid">
 					<div class="row">
@@ -218,14 +215,14 @@
 								</div>
 								<div class="panel-body">
 
-									<div ng-model="artists">
+									<div ng-model="artists" ng-controller="AlbumsCtrl">
 										<div class="row">
 											<div ng-repeat="artist in topartists">
 
 												<div class="col-md-2">
 													<div class="thumbnail">
-														<div class="square-container img-circle" type="button" data-toggle="modal" data-target=".{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
-															<img ng-src="{{artist.images[0].url}}" alt="" class="img img-responsive centered">
+														<div class="square-container img-circle" type="button" data-toggle="modal" data-target=".{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}">
+															<img ng-src="{{artist.images[0].url}}" alt="" class="img img-responsive centered" ng-click="getAlbumsFromArtist(artist.id)">
 														</div>
 													</div>
 													<h3 class="text-center">{{artist.name}}</h3>
@@ -233,7 +230,7 @@
 
 
 
-												<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="AlbumsCtrl" ng-click="getAlbumsFromArtist(artist.id)">
+												<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 													<div class="modal-dialog">
 														<div class="modal-content">
 															
@@ -422,6 +419,9 @@
 				<!-- Filters have to be applied (in ng-repeat & here) in order to show newly added song at the top -->
 
 				<h3 class="text-center text-white">Queue</h3>
+				<div id="player">
+					<iframe id="iframe" style="display:none" src=""></iframe>
+				</div>
 				<li class="span3" style='margin-left:10px;'>
 					<div class="thumbnail queue">
 						<div class="caption">

@@ -18,6 +18,7 @@ angular.module('musicPlayerApp')
 
   	$rootScope.passSrc = function(url){
   		$("#iframe").attr('src', url);
+      console.log($("#iframe").attr('src', url));
  	  }  	
 
     $rootScope.removeSrc = function(){
