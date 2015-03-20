@@ -58,10 +58,6 @@
 
     $scope.playlists[plId] = playlist;
     $rootScope.plId = plId;
-
-    console.log($scope.playlists);
-    console.log($scope.queue);
-
   }
   
 $("#thumbnail").remove();
@@ -79,8 +75,6 @@ $("#thumbnail").remove();
  $scope.addSongToTheQueue = function(song){
 
    $scope.queue.push(song);
-
-   console.log($scope.queue);
  }
 
  $scope.removeSongFromPlaylist = function(playlist, song){    
