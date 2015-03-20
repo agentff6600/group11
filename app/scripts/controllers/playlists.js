@@ -19,18 +19,21 @@
     });
   };
 })
- .controller('PlaylistsCtrl', function ($scope, Spotify, Playlist) {
+ .controller('PlaylistsCtrl', function ($scope, $rootScope, Spotify, Playlist) {
    console.log("playlists controller");
 
    Spotify.getAlbumTracks('2G4AUqfwxcV1UdQjm2ouYr').then(function (data) {
-    $scope.temporary = data.items;        
+    $scope.temporary = data.items; 
+
+    $scope.addNewPlaylist("NewPlaylist");       
 
     for (var i = 0; i < data.items.length; i++) {
-     $scope.addSongToTheList($scope.temporary[i]);
+     $scope.addSongToPlaylist(1,$scope.temporary[i]);
    }; 		
+
  });
 
-   $scope.playlists = []; 
+   $scope.playlists = {};    
 
    $scope.queue = []; 
 
@@ -38,13 +41,11 @@
 
    var i = 0;
 
-   $scope.addNewPlaylist = function(name){          
-<<<<<<< HEAD
-    $scope.playlists.push(new Playlist(name));
+   $scope.setCurrentPlist = function(id) {
+    $rootScope.plId = id;
+   }
 
-    console.log($scope.playlists);
-    console.log($scope.queue);
-=======
+   $scope.addNewPlaylist = function(name){          
     //$scope.playlists.push(new Playlist(name)); 
     
     var plId = _.uniqueId();
@@ -57,17 +58,13 @@
 
     $scope.playlists[plId] = playlist;
     $rootScope.plId = plId;
->>>>>>> 099f85dfd4cd8bfb727ca0a08d94a42de7d7708a
   }
+  
+$("#thumbnail").remove();
 
-  $scope.addSongToPlaylist = function(playlist, song){
-    for (var i = 0; i < $scope.playlists.length; i++) {    
+  $scope.addSongToPlaylist = function(id, song){
 
-      if($scope.playlists[i].name === playlist)
-      {      
-       $scope.playlists[i].songs.push($scope.temporary[0]);
-     }
-   };    
+    $scope.playlists[id].playlist.songs.push(song);
  }
 
  $scope.addSongToTheList = function(song){
@@ -82,21 +79,7 @@
 
  $scope.removeSongFromPlaylist = function(playlist, song){    
 
-  for (var i = 0; i < $scope.playlists.length; i++) {    
-
-    if($scope.playlists[i].name === playlist)
-    { 
-      for (var j = 0; j < $scope.playlists[i].songs.length; j++) {
-        console.log($scope.playlists);
-        if($scope.playlists[i].songs[j] === song)
-        {            
-          var index = $scope.playlists[i].songs.indexOf(song);
-          $scope.playlists[i].songs.splice(index, 1);
-        } 
-      };
-    }
-  };
-}
+ }
 
 $scope.removeSongFromQueue = function(song){     
   for (var i = 0; i < $scope.queue.length; i++) {    
