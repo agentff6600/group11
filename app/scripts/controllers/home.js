@@ -49,7 +49,7 @@
 
         for (var h=0; h < data.tracks.items.length; h++){
          $rootScope.songs.push(data.tracks.items[h]);
-         //console.log($rootScope.songs[h].artists[0].name);
+         //console.log($rootScope.songs[h]);
        }     
      }); 
 

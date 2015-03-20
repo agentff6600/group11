@@ -91,6 +91,11 @@ $scope.removeSongFromQueue = function(song){
   };
 }
 
+$scope.removePlaylist = function(playlistid)
+{  
+  delete $scope.playlists[playlistid];
+}
+
 $scope.getArtistsAlbum = function(artistId){     
   Spotify.getArtistAlbums(artistId).then(function (data) {
     console.log(data);
