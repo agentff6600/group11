@@ -410,7 +410,7 @@
 										</td>
 										<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="left">
 											<a>
-												<i class="fa fa-step-forward fa-2x"></i>
+												<i class="fa fa-step-forward fa-2x" ng-click="removeFirstSongFromQueue()"></i>
 											</a>
 										</td>
 									</tr>
@@ -435,19 +435,18 @@
 						<div class="caption">
 							
 							
-							<div class="list-group-item" ng-repeat="song in queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
-								<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a></h5>
+							<div class="list-group-item" ng-repeat="song in $root.queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.queue" jqyoui-draggable="{index: {{$index}},animate:true}">
+								<h5 class="list-group-item-heading"><b>{{song.name}}</b> by {{song.artists[0].name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a></h5>
 							</div>
 							<h3 class="text-center text-primary">Drøp</h3>
 							<h3 class="text-center text-primary">Søng</h3>
-							<h3 class="text-center text-primary">here</h3>
+							<h3 class="text-center text-primary">Here</h3>
+							<h3 class="text-center text-primary"><span class="glyphicon glyphicon-music"></span></h3>
 						</div>
 					</div>
 			</div>
 
 		<!--this should move later to the player.html-->
-
-
 	</div>
 </div>
 </div>
