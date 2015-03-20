@@ -54,6 +54,13 @@ angular.module('musicPlayerApp', [
 					}
 				}
 			})
+			.state('app.toplists', {
+				url: "/toplists",
+				templateUrl: "views/_main.html",
+				controller: "MainCtrl",				
+				page: 'home',
+								
+			})
 			.state('app.player', {
 				url: "/player",
 				views: {

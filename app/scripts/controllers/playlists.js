@@ -43,7 +43,16 @@
 
    $scope.totalSongs = function()
    {
-    
+
+   }
+
+   $scope.playAll = function(playlistId)
+   {           
+
+      for (var i = 0; i < $scope.playlists[playlistId].playlist.songs.length; i++) {
+        $scope.addSongToTheQueue($scope.playlists[playlistId].playlist.songs[i]);
+      };
+
    }
 
    $scope.addNewPlaylist = function(name){          

@@ -10,6 +10,7 @@ angular.module('musicPlayerApp')
   	console.log("songs controller");
 
     $scope.getSongsFromAlbum = function(album){
+      console.log("woho");
       Spotify.getAlbumTracks(album).then(function (data) {
         $scope.songs = data.items;          
 
