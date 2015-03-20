@@ -16,6 +16,10 @@ angular.module('musicPlayerApp')
   		$scope.sidebar = !$scope.sidebar;
   	}
 
+  	$scope.passSrc = function(url){
+  		$("#iframe").attr('src', url);
+ 	}  	
+
   	$scope.topsongs=[];
   	$scope.topalbums=[];
   	$scope.topartists=[];
@@ -31,21 +35,20 @@ angular.module('musicPlayerApp')
         if(data.artists.items.length >0){
          $scope.topartists.push(data.artists.items[0]);
        }
-		console.log("artists", $scope.topartists);
     });  
 
 		Spotify.search(albumsq[i],'album', {limit:'1'}).then(function (data) {     
         if(data.albums.items.length >0){
          $scope.topalbums.push(data.albums.items[0]);
        }
-       console.log("albums",$scope.topalbums);
+    
     });
 
 		Spotify.search(songsq[i],'track', {limit:'1'}).then(function (data) {     
         if(data.tracks.items.length >0){
          $scope.topsongs.push(data.tracks.items[0]);
        }
-       console.log("songs",$scope.topsongs);
+    
     });
 
   	};

@@ -35,7 +35,7 @@
 							<a ng-href="#/playlists"> Your Playlists</a>
 						</li>
 					</ul>
-<!--
+					<!--
 						<ul class="nav navbar-nav navbar-right">
 							<li>
 								<button ng-click="toggleSidebar()" type="button" class="btn btn-primary navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
@@ -49,6 +49,10 @@
 			</nav>
 			<div id="mp_view" ui-view="mainContent">
 
+				<div id="player">
+					<iframe id = "iframe" style="display:none" src=""></iframe>
+				</div>
+
 				<div class="container-fluid">
 					<div class="row">
 						<div class="col-md-12">
@@ -56,6 +60,7 @@
 								<div class="panel-heading"><b>Top 10 Songs</b>
 								</div>
 								<div class="panel-body">
+
 									<div class="row">
 										<div class="col-md-12">
 											<table class="table table-hover ">
@@ -73,12 +78,13 @@
 													<tr ng-repeat="song in topsongs">
 														<td width="7%">
 															<div class="square-container img">
-																<img ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+																<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive"></a>
 															</div>
 														</td>
 														<td class="drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
 															{{song.name}}
 														</td>
+
 														<td>
 															{{song.artists[0].name}}
 														</td>
