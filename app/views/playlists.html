@@ -23,32 +23,11 @@
 
 				<div class="square-container img-rounded" data-toggle="modal" data-target=".bs-example-modal-lg">
 
-				<div class="square-container img-rounded" ng-click="setCurrentPlist(playlist.id)" style="background-color:#777">
-
-				<div class="square-container img-rounded" style="background-color:#777">
-
 					<div class="top-left"></div>
 					<div class="top-right"></div>
 					<div class="bottom-left"></div>
 					<div class="bottom-right"></div>
 				</div>
-
-
-				<div>
-					<!--
-					<button class="btn btn-warning" type="button"><span class="glyphicon glyphicon-remove"></span>
-					</button>
--->
-				</div>
-
-				</br>
-				<div class="actions">
-                <a class="delete" ms-click="remove($remove)">
-                <button class="btn btn-default"><span class="glyphicon glyphicon-remove"></span>
-					</button>
-				</a>
-                </div>
-
 
 				<div class="caption">
 					<h4 align="center">{{playlist.name}}<a class="glyphicon glyphicon-trash pull-right"></a></h4>
@@ -57,102 +36,56 @@
 			</div>
 		</div>
 	</div>
-</div>
 
-<div class="voffset3">
+	<div class="voffset3">
+	</div>
 
-</div>
+	<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="row">
+					<div class="col-md-12">
+						<table class="table table-hover">
+							<thead>
+								<tr>
+									<th>N°</th>
+									<th>Title</th>
+									<th>Duration</th>
+									<th></th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr ng-repeat="song in listOfSongs">
+									<td>
+										<b>{{song.track_number}}.</b>
+									</td>
+									<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+										{{song.name}}
+									</td>
+									<td>
+										{{song.duration_ms}}
+									</td>
+									<td class="text-right text-nowrap">
 
-<div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-	<div class="modal-dialog modal-lg">
-<<<<<<< HEAD
-		<div class="modal-content">
-			<div class="row">
-				<div class="col-md-12">
-					<table class="table table-hover">
-						<thead>
-							<tr>
-								<th>N°</th>
-								<th>Title</th>
-								<th>Duration</th>
-								<th></th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr ng-repeat="song in listOfSongs">
-								<td>
-									<b>{{song.track_number}}.</b>
-								</td>
-								<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-									{{song.name}}
-								</td>
-								<td>
-									{{song.duration_ms}}
-								</td>
-								<td class="text-right text-nowrap">
-
-									<div class="btn-group">
-										<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
-											<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
-										</button>
-										<ul class="dropdown-menu" role="menu">
-											<li><a ng-click="addSongToTheList(song)">Action</a>
-											</li>
-											<li><a>Another action</a>
-											</li>
-											<li><a>Something else here</a>
-											</li>
-										</ul>
-									</div>
-
-								</td>
-							</tr>
-						</tbody>
-					</table>
+										<div class="btn-group">
+											<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+												<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+											</button>
+											<ul class="dropdown-menu" role="menu">
+												<li><a ng-click="addSongToTheList(song)">Action</a>
+												</li>
+												<li><a>Another action</a>
+												</li>
+												<li><a>Something else here</a>
+												</li>
+											</ul>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
-
-		<div class="modal-content">			
-
-				<table class="table table-hover">
-					<thead>
-						<tr>
-							<th>N°</th>
-							<th>Title</th>
-							<th>Duration</th>
-							<th></th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr ng-repeat="song in playlists[$root.plId].playlist.songs">								
-							<td>
-								<b>{{song.track_number}}.</b>
-							</td>
-							<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="playlists[$root.plId].playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true}">
-								{{song.name}}
-							</td>
-							<td>
-								{{song.duration_ms}}
-							</td>
-							<td class="text-right text-nowrap">
-
-								<div class="btn-group">
-									<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
-										<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
-									</button>
-									<ul class="dropdown-menu" role="menu">
-										<li><a ng-click="addSongToTheList(song)">Action</a>
-										</li>
-										<li><a>Another action</a>
-										</li>
-										<li><a>Something else here</a>
-										</li>
-									</ul>
-								</div>
-
-							</td>
-						</tr>
-					</tbody>
-				</table>
 			</div>
 		</div>
 	</div>
