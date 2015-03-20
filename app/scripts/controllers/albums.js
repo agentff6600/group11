@@ -20,25 +20,6 @@ angular.module('musicPlayerApp')
       //console.log("albums", $rootScope.albumsOfArtist);       
   });
     }
-
-    $scope.getSongsFromAlbum = function(album){
-      console.log("woho");
-      Spotify.getAlbumTracks(album).then(function (data) {
-        $scope.songs = data.items;          
-
-        for (var i = 0; i < $scope.songs.length; i++) {
-          getAlbumImage(i, album);
-        };        
-      });
-    }
-
-    function getAlbumImage(i, albumId){    
-      Spotify.getAlbum(albumId).then(function (data) {          
-        $scope.songs[i]["images"] = data.images[0];
-    });
-    }
-
-
     
   });
 
