@@ -17,7 +17,7 @@ angular.module('musicPlayerApp')
   	}
 
   	$rootScope.passSrc = function(url){
-  		$("#iframe").attr('src', url);      
+        $("#iframe").attr('src', url);   		
  	  }  	
 
     $rootScope.removeSrc = function(){
@@ -56,7 +56,7 @@ angular.module('musicPlayerApp')
 
 		Spotify.search(songsq[i],'track', {limit:'1'}).then(function (data) {     
         if(data.tracks.items.length >0){
-         $scope.topsongs.push(data.tracks.items[0]);
+         $scope.topsongs.push(data.tracks.items[0]);         
        }
     
     });

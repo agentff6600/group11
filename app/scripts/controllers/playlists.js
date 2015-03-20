@@ -35,7 +35,7 @@
 
    $scope.playlists = {};    
 
-   $scope.queue = [];     
+   $rootScope.queue = [];     
 
    $scope.setCurrentPlist = function(id) {
     $rootScope.plId = id;
@@ -68,7 +68,7 @@ $("#thumbnail").remove();
 
  $scope.addSongToTheQueue = function(song){
 
-   $scope.queue.push(song);
+   $rootScope.queue.push(song);
  }
 
  $scope.removeSongFromPlaylist = function(playlist, song){    
@@ -76,18 +76,31 @@ $("#thumbnail").remove();
  }
 
 $scope.removeSongFromQueue = function(song){     
-  for (var i = 0; i < $scope.queue.length; i++) {    
-    if($scope.queue[i] === song)
+  for (var i = 0; i < $rootScope.queue.length; i++) {    
+    if($rootScope.queue[i] === song)
     {                    
-      var index = $scope.queue.indexOf($scope.queue[i]);
-      $scope.queue.splice(index, 1);
+      var index = $rootScope.queue.indexOf($rootScope.queue[i]);
+      $rootScope.queue.splice(index, 1);
     } 
   };
 
   $rootScope.removeSrc();
-  if($scope.queue.length != 0)
+  if($rootScope.queue.length != 0)
   {
-    $rootScope.passSrc($scope.queue[0].preview_url);  
+    $rootScope.passSrc($rootScope.queue[0].preview_url);  
+  }
+}
+
+$scope.removeFirstSongFromQueue = function(){     
+  $rootScope.queue.shift();
+
+  if($rootScope.queue.length != 0)
+  {
+      $rootScope.passSrc($rootScope.queue[0].preview_url);
+  }
+  else
+  {
+       $rootScope.removeSrc();
   }
 }
 
