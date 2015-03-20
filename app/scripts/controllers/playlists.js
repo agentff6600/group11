@@ -29,17 +29,13 @@
 
     for (var i = 0; i < data.items.length; i++) {
      $scope.addSongToPlaylist(1,$scope.temporary[i]);
-   }; 		
+   }; 		   
 
  });
 
    $scope.playlists = {};    
 
-   $scope.queue = []; 
-
-   $scope.listOfSongs = [];
-
-   var i = 0;
+   $scope.queue = [];     
 
    $scope.setCurrentPlist = function(id) {
     $rootScope.plId = id;
@@ -65,12 +61,10 @@ $("#thumbnail").remove();
   $scope.addSongToPlaylist = function(id, song){
 
     $scope.playlists[id].playlist.songs.push(song);
+
+    //console.log($scope.playlists[2].playlist.songs[0].album.images[0].url);
  }
 
- $scope.addSongToTheList = function(song){
-
-   $scope.listOfSongs.push(song);   
- }
 
  $scope.addSongToTheQueue = function(song){
 

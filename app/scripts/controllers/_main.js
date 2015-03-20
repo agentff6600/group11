@@ -15,5 +15,9 @@ angular.module('musicPlayerApp')
   	$scope.toggleSidebar = function() {
   		$scope.sidebar = !$scope.sidebar;
   	}
+
+  	$scope.clearImg = function(){
+  		$('artworkImg').attr('ng-src', '');
+  	}
 	
 });
