@@ -38,21 +38,24 @@
    $rootScope.queue = [];     
 
    $scope.setCurrentPlist = function(id) {
-    $rootScope.plId = id;
+    $rootScope.plId = id;    
+    $rootScope.totalSongs = totalSongs(id);
    }
 
-   $scope.totalSongs = function()
+   function totalSongs(playlistId)
    {
+      var total = $scope.playlists[playlistId].playlist.songs.length;
+      $rootScope.totalSongs = total;
+
+      return total;
 
    }
 
    $scope.playAll = function(playlistId)
    {           
-
       for (var i = 0; i < $scope.playlists[playlistId].playlist.songs.length; i++) {
         $scope.addSongToTheQueue($scope.playlists[playlistId].playlist.songs[i]);
       };
-
    }
 
    $scope.addNewPlaylist = function(name){          
@@ -88,6 +91,10 @@ $("#thumbnail").remove();
  $scope.removeSongFromPlaylist = function(playlistId, song){      
     var index = $scope.playlists[playlistId].playlist.songs.indexOf(song);     
     $scope.playlists[playlistId].playlist.songs.splice(index, 1);
+
+    totalSongs(playlistId);
+
+
  }
 
 $scope.removeSongFromQueue = function(song){     
@@ -130,15 +137,4 @@ $scope.getArtistsAlbum = function(artistId){
   });
 }
 
-
-  // Limit items to be dropped in playlist1
-  $scope.optionsList1 = {
-    accept: function(dragEl) {
-      if ($scope.playlist1.length >= 5) {
-        return false;
-      } else {
-        return true;
-      }
-    }
-  };
 });
