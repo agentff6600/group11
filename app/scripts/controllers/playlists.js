@@ -25,10 +25,10 @@
    Spotify.getAlbumTracks('2G4AUqfwxcV1UdQjm2ouYr').then(function (data) {
     $scope.temporary = data.items; 
 
-    $scope.addNewPlaylist("NewPlaylist");       
+    $scope.addNewPlaylist("My cool Playlist");       
 
-    for (var i = 0; i < data.items.length; i++) {
-     $scope.addSongToPlaylist(1,$scope.temporary[i]);
+    for (var i = 0; i < $scope.topsongs.length; i++) {
+     $scope.addSongToPlaylist(1, $scope.topsongs[i]);
    }; 		   
 
  });
@@ -39,6 +39,11 @@
 
    $scope.setCurrentPlist = function(id) {
     $rootScope.plId = id;
+   }
+
+   $scope.totalSongs = function()
+   {
+    
    }
 
    $scope.addNewPlaylist = function(name){          
@@ -71,8 +76,9 @@ $("#thumbnail").remove();
    $rootScope.queue.push(song);
  }
 
- $scope.removeSongFromPlaylist = function(playlist, song){    
-
+ $scope.removeSongFromPlaylist = function(playlistId, song){      
+    var index = $scope.playlists[playlistId].playlist.songs.indexOf(song);     
+    $scope.playlists[playlistId].playlist.songs.splice(index, 1);
  }
 
 $scope.removeSongFromQueue = function(song){     

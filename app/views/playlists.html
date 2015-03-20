@@ -48,13 +48,6 @@
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
 		<div class="modal-content">
-			<!--
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span>
-				</button>
-				<h4 class="modal-title" id="myModalLabel">{{playlists[$root.plId].playlist.name}}</h4>
-			</div>
--->
 			<div class="model-body">
 				<div class="container-fluid">
 
@@ -62,26 +55,22 @@
 					<div class="row">
 
 						<div class="col-md-3">
-
 							<div class="square-container img-rounded" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="setCurrentPlist(playlist.id)" style="background-color:#777">
-
-								<div class="top-left"><i class="fa fa-music fa-5x centered"></i><img ng-src="{{playlists[playlist.id].playlist.songs[0].album.images[0].url}}">
+								<div class="top-left"><i class="fa fa-music fa-5x centered"></i><img ng-src="{{playlists[$root.plId].playlist.songs[0].album.images[0].url}}">
 								</div>
-								<div class="top-right"><i class="fa fa-headphones fa-5x centered"></i><img ng-src="{{playlists[playlist.id].playlist.songs[1].album.images[0].url}}">
+								<div class="top-right"><i class="fa fa-headphones fa-5x centered"></i><img ng-src="{{playlists[$root.plId].playlist.songs[1].album.images[0].url}}">
 								</div>
-								<div class="bottom-left"><i class="fa fa-play-circle fa-5x centered"></i><img ng-src="{{playlists[playlist.id].playlist.songs[2].album.images[0].url}}">
+								<div class="bottom-left"><i class="fa fa-play-circle fa-5x centered"></i><img ng-src="{{playlists[$root.plId].playlist.songs[2].album.images[0].url}}">
 								</div>
-								<div class="bottom-right"><i class="fa fa-spotify fa-5x centered"></i><img ng-src="{{playlists[playlist.id].playlist.songs[3].album.images[0].url}}">
+								<div class="bottom-right"><i class="fa fa-spotify fa-5x centered"></i><img ng-src="{{playlists[$root.plId].playlist.songs[3].album.images[0].url}}">
 								</div>
-
 							</div>
-
 						</div>
 						<div class="col-md-9">
 							<div class="caption">
 								<h1>{{playlists[$root.plId].playlist.name}}</h1>
 								<h4>Total duration</h4>
-								<h4>Total Songs</h4>
+								<h4>{{totalSongs}}</h4>
 							</div>
 						</div>
 					</div>
@@ -134,7 +123,7 @@
 													</div>
 												</td>
 												<td>
-												<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a>
+												<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromPlaylist($root.plId, song)"></a>
 												</td>
 											</tr>
 										</tbody>
