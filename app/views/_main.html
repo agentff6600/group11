@@ -420,20 +420,25 @@
 			<!-- QUEUE -->
 			<!-- Filters have to be applied (in ng-repeat & here) in order to show newly added song at the top -->
 
-			<h3 class="text-center text-white">Queue</h3>
-			<div id="player">
-				<iframe id="iframe" style="display:none" src=""></iframe>
-			</div>
-			<li class="span3" style='margin-left:10px;'>
-				<div class="thumbnail queue">
-					<div class="caption">
-						<div class="list-group-item" ng-repeat="song in queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
-							<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<span class="glyphicon glyphicon-remove" ng-click="removeSongFromQueue(song)"></span></h5>
+				<h2 class="text-center text-white">Queue</h2>
+
+				<div id="player">
+					<iframe id="iframe" style="display:none" src=""></iframe>
+				</div>
+
+					<div class="thumbnail queue">
+						<div class="caption">
+							
+							
+							<div class="list-group-item" ng-repeat="song in queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="queue" jqyoui-draggable="{index: {{$index}},animate:true}">
+								<h5 class="list-group-item-heading">{{song.track_number}}. {{song.name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a></h5>
+							</div>
+							<h3 class="text-center text-primary">Drøp</h3>
+							<h3 class="text-center text-primary">Søng</h3>
+							<h3 class="text-center text-primary">here</h3>
 						</div>
 					</div>
-				</div>
-			</li>
-		</div>
+			</div>
 
 		<!--this should move later to the player.html-->
 
