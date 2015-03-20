@@ -22,7 +22,7 @@
       Spotify.search($rootScope.query,'artist', {limit:'6'}).then(function (data) {     
         $rootScope.artists=[];
 
-        console.log(data);
+        //console.log(data);
 
         for (var i=0; i < data.artists.items.length; i++){
          $rootScope.artists.push(data.artists.items[i]);
@@ -36,7 +36,7 @@
         
         for (var j=0; j < data.albums.items.length; j++){
          $rootScope.albums.push(data.albums.items[j]);
-         console.log($rootScope.albums);  
+         //console.log($rootScope.albums);  
 
        }
 
