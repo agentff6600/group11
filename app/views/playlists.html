@@ -12,7 +12,7 @@
 
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="button" ng-click="addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-						</button>
+					</button>
 					</span>
 				</div>
 			</div>
@@ -20,7 +20,6 @@
 
 		<div class="col-xs-12 col-sm-3 col-md-2" ng-repeat="playlist in playlists">
 			<div class="thumbnail">
-
 				<div class="square-container img-rounded" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="setCurrentPlist(playlist.id)" style="background-color:#777">				
 
 					<div class="top-left" ng-src="{{playlists[$root.plId].playlist.songs.album.images[0].url}}"></div>
@@ -45,7 +44,7 @@
 
 <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
 	<div class="modal-dialog modal-lg">
-		<div class="modal-content">			
+		<div class="modal-content">
 			<table class="table table-hover">
 				<thead>
 					<tr>
@@ -56,7 +55,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="song in playlists[$root.plId].playlist.songs">								
+					<tr ng-repeat="song in playlists[$root.plId].playlist.songs">
 						<td>
 							<b>{{song.track_number}}.</b>
 						</td>
@@ -84,5 +83,4 @@
 			</table>
 		</div>
 	</div>
-</div>
 </div>

@@ -107,15 +107,18 @@
 								</div>
 
 
-								<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+								<div class="modal fade text-left {{artist.id}}" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" ng-controller="AlbumsCtrl" ng-click="getAlbumsFromArtist(artist.id)">
 									<div class="modal-dialog">
 										<div class="modal-content">
 											<div class="modal-body">
 												<div class="row">
-													<div class="col-md-offset-3 col-md-6">
-														<div class="thumbnail">
-															<div class="square-container img-circle ">
-																<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
+													<div class="col-md-offset-3 col-md-6" >
+														<div class="thumbnail" >
+															<div class="square-container img-circle " >
+
+																<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive" >
+															}
+															}
 															</div>
 														</div>
 														<h1 class="text-center"><b>{{artist.name}}</b></h1>
@@ -124,7 +127,7 @@
 												<div class="voffset4"></div>
 												<div class="row">
 													<div class="col-md-12" ng-repeat="album in albums">
-														<span class="list-group-item" data-toggle="collapse" data-target="#{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
+														<span class="list-group-item" data-toggle="collapse" data-target=".{{album.id}}" ng-click="getSongsFromAlbum(album.id)">
 
 															<div class="row">
 																<div class="col-md-4">
