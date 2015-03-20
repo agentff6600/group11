@@ -39,10 +39,25 @@
    var i = 0;
 
    $scope.addNewPlaylist = function(name){          
+<<<<<<< HEAD
     $scope.playlists.push(new Playlist(name));
 
     console.log($scope.playlists);
     console.log($scope.queue);
+=======
+    //$scope.playlists.push(new Playlist(name)); 
+    
+    var plId = _.uniqueId();
+
+    var playlist = {
+      id: plId,
+      name: name,
+      playlist: new Playlist(name)
+    };
+
+    $scope.playlists[plId] = playlist;
+    $rootScope.plId = plId;
+>>>>>>> 099f85dfd4cd8bfb727ca0a08d94a42de7d7708a
   }
 
   $scope.addSongToPlaylist = function(playlist, song){
@@ -63,8 +78,6 @@
  $scope.addSongToTheQueue = function(song){
 
    $scope.queue.push(song);
-
-   console.log($scope.queue);
  }
 
  $scope.removeSongFromPlaylist = function(playlist, song){    

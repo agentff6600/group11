@@ -118,11 +118,11 @@
 
 						<div class="row" ng-show="queue[0]">
 							<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
-								<img src="../images/7c6ff75c4d254da552e6337cba4908c5fbe1a588.jpg" alt="" class="img-rounded img-responsive ">
+								<img ng-src="{{queue[0].images.url}}" alt="" class="img-rounded img-responsive ">
 							</div>
 							<div class="row">
 								<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
-									<h3 class="text-center text-white">{{queue[0].name}}</h3>
+									<h3 class="text-center text-white">{{queue[0].name}}</h3>									
 									<h5 class="text-center text-white"><i>Album by {{queue[0].artists[0].name}}</i></h5>
 									<div>
 										<h1 class="text-center"> </h1>
