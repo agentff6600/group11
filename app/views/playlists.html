@@ -22,10 +22,10 @@
 			<div class="thumbnail">
 				<div class="square-container img-rounded" data-toggle="modal" data-target=".bs-example-modal-lg" ng-click="setCurrentPlist(playlist.id)" style="background-color:#777">				
 
-					<div class="top-left" ng-src="{{playlists[$root.plId].playlist.songs.album.images[0].url}}"></div>
-					<div class="top-right"></div>
-					<div class="bottom-left"></div>
-					<div class="bottom-right"></div>
+					<div class="top-left"><img ng-src="{{playlists[playlist.id].playlist.songs[0].album.images[0].url}}"></div>
+					<div class="top-right"><img ng-src="{{playlists[playlist.id].playlist.songs[1].album.images[0].url}}"></div>
+					<div class="bottom-left"><img ng-src="{{playlists[playlist.id].playlist.songs[2].album.images[0].url}}"></div>
+					<div class="bottom-right"><img ng-src="{{playlists[playlist.id].playlist.songs[3].album.images[0].url}}"></div>
 				</div>
 
 			</br>
