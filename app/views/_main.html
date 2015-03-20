@@ -90,6 +90,7 @@
 																<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
 															</button>
 															<ul class="dropdown-menu" role="menu">
+																<li>My Playlists:</li>
 																<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
 																</li>
 																<input type="text" id="focus" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
@@ -184,9 +185,13 @@
 																									<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
 																								</button>
 																								<ul class="dropdown-menu" role="menu">
+																									<li>My Playlists:
+																									</li>
 																									<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
 																									</li>
+																									<li>
 																									<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+																									</li>
 																								</ul>
 																							</div>
 																						</td>

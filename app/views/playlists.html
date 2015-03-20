@@ -102,6 +102,7 @@
 												<th>Title</th>
 												<th>Duration</th>
 												<th></th>
+												<th></th>
 											</tr>
 										</thead>
 										<tbody>
@@ -131,6 +132,9 @@
 															<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 														</ul>
 													</div>
+												</td>
+												<td>
+												<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a>
 												</td>
 											</tr>
 										</tbody>
