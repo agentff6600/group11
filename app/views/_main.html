@@ -77,11 +77,11 @@
 												<tbody>
 													<tr ng-repeat="song in topsongs">
 														<td width="7%">
-															<div class="square-container img">
+															<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
 																<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive"></a>
 															</div>
 														</td>
-														<td class="drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
+														<td>
 															{{song.name}}
 														</td>
 
@@ -96,14 +96,14 @@
 														</td>
 														<td class="text-right text-nowrap">
 
-															<div class="btn-group">
-																<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
+															<div class="btn-group" >
+																<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false" ng-click="$root.setFocusToTextBox()" id="focus">
 																	<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
 																</button>
 																<ul class="dropdown-menu" role="menu">
 																	<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
 																	</li>
-																	<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+																	<input type="text" id="focusing" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 																</ul>
 															</div>
 														</td>
@@ -327,12 +327,12 @@
 									<tr>
 										<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="right">
 											<a>
-												<i class="fa fa-step-backward fa-2x"></i>
+												<i class="fa fa-step-backward fa-2x" ng-click="removeSrc()"></i>
 											</a>
 										</td>
 										<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="center">
 											<a>
-												<i class="fa fa-pause fa-3x"></i>
+												<i class="fa fa-pause fa-3x" ng-click="passSrc(queue[0].preview_url)"></i>
 											</a>
 
 										</td>

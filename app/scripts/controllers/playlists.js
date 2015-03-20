@@ -83,6 +83,12 @@ $scope.removeSongFromQueue = function(song){
       $scope.queue.splice(index, 1);
     } 
   };
+
+  $rootScope.removeSrc();
+  if($scope.queue.length != 0)
+  {
+    $rootScope.passSrc($scope.queue[0].preview_url);  
+  }
 }
 
 $scope.removePlaylist = function(playlistid)
