@@ -15,6 +15,8 @@ angular.module('musicPlayerApp')
       Spotify.getArtistAlbums(artist,{country:'SE'}).then(function (data) {     
       $scope.albums = data.items;         
       $rootScope.albumsOfArtist = data.items; 
+
+      console.log($rootScope.albumsOfArtist);
       //console.log("albums", $rootScope.albumsOfArtist);       
   });
     }

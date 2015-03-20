@@ -17,22 +17,18 @@ angular.module('musicPlayerApp')
   	}
 
   	$rootScope.passSrc = function(url){
-  		$("#iframe").attr('src', url);
-      console.log($("#iframe").attr('src', url));
+  		$("#iframe").attr('src', url);      
  	  }  	
 
     $rootScope.removeSrc = function(){
         $("#iframe").attr('src', '');
     } 
 
-    $rootScope.setFocusToTextBox = function(){
-      
-      //document.getElementById("#focus").focus();
-
-      $( "#focus" ).click(function() {  
-        $( "#focusing" ).focus();
-      });
-    }  
+  
+    $('.dropdown-toggle').find('#focus').click(function (e) {
+      e.stopPropagation();
+    });
+   
 
   	$scope.topsongs=[];
   	$scope.topalbums=[];
