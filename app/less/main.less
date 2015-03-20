@@ -130,7 +130,7 @@ body {
 }
 
 .queue {
-background-color: darken(@well-bg,15%);
+background-color: darken(@well-bg,10%);
 }
 
 //navbar height / centering / navbar form width
@@ -146,6 +146,8 @@ background-color: darken(@well-bg,15%);
 		vertical-align: middle;
 	}
 }
+
+
 
 //Vertical Spacers
 .voffset {
@@ -256,4 +258,14 @@ margin: 0;
     left: 50%;
     margin-right: -50%;
     transform: translate(-50%, -50%)
+}
+
+h3, .h3 {
+  margin-top: (@line-height-computed / 2);
+  margin-bottom: (@line-height-computed / 2);
+
+  small,
+  .small {
+    font-size: 65%;
+  }
 }
