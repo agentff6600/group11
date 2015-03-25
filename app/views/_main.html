@@ -10,137 +10,148 @@
 						<button ng-click="toggleSidebar()" type="button" class="navbar-toggle collapsed btn navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
 						</button>
 					-->
-					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-						<span class="sr-only">Toggle navigation</span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-						<span class="icon-bar"></span>
-					</button>
+						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
 
-					<a class="navbar-brand" href="/#"><i class="fa fa-music "></i>  Plyr</a>
-				</div>
+						<a class="navbar-brand" href="/#"><i class="fa fa-music "></i>  Plyr</a>
+					</div>
 
-				<!-- Collect the nav links, forms, and other content for toggling -->
-				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-					<ul class="nav navbar-nav">
-						<form class="navbar-form navbar-left" ng-controller="HomeCtrl" ng-keyup="searchFor()">
-							<input type="text" ng-model="$root.query" class="form-control" placeholder="Search">
-						</form>
-						<li ng-click="page = 'home'" ng-class="{'active' : page == 'home'}">
-							<a ng-href="#/toplists">Toplists</a>
-						</li>
-						<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
-							<a ng-href="#/playlists"> Your Playlists</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-		</nav>
-
-
-		<div id="mp_view" ui-view="mainContent">
-
-			<div class="container-fluid">
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading"><b>Top 10 Songs</b>
-							</div>
-
-							<div class="panel-body">
-								<div class="row">
-									<div class="col-md-12">
-										<table class="table table-hover ">
-											<thead>
-												<tr>
-													<th></th>
-													<th>Title</th>
-													<th>By</th>
-													<th>Album</th>
-													<th>Duration</th>
-													<th></th>
-												</tr>
-											</thead>
-											<tbody>
-												<tr ng-repeat="song in topsongs">
-													<td width="7%">
-														<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
-															<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
-																<i class="fa fa-play fa-2x  centered"></i>
-															</a>
-														</div>
-													</td>
-													<td>
-														{{song.name}}
-													</td>
-
-													<td width="20%">
-														{{song.artists[0].name}}
-													</td>
-													<td>
-														{{song.album.name}}
-													</td>
-													<td>
-														{{song.duration_ms /60000 | number:1}} min
-													</td>
-													<td class="text-right text-nowrap">
-
-														<div class="btn-group">
-															<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false" id="dropdownPlaylists">
-																<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
-															</button>
-															<ul class="dropdown-menu" role="menu">
-																<li>My Playlists:</li>
-																<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
-																</li>
-																<input type="text" id="focus" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
-																<span class="input-group-btn">
-																	<button class="btn btn-primary" type="button" ng-click="addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-																	</button>
-																</span>
-															</ul>
-														</div>
-													</td>
-												</tr>
-											</tbody>
-										</table>
-									</div>
-								</div>
-							</div>
-
-
-						</div>
+					<!-- Collect the nav links, forms, and other content for toggling -->
+					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+						<ul class="nav navbar-nav">
+							<form class="navbar-form navbar-left" ng-controller="HomeCtrl" ng-keyup="searchFor()">
+								<input type="text" ng-model="$root.query" class="form-control" placeholder="Search">
+							</form>
+							<li ng-click="page = 'home'" ng-class="{'active' : page == 'home'}">
+								<a ng-href="#/toplists">Toplists</a>
+							</li>
+							<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
+								<a ng-href="#/playlists"> Your Playlists</a>
+							</li>
+						</ul>
 					</div>
 				</div>
+			</nav>
 
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="panel panel-default">
-							<div class="panel-heading"><b>Top 10 Albums</b>
-							</div>
-							<div class="panel-body">
-								<div ng-model="albums">
+			<div id="mp_view" ui-view="mainContent">
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"><b>Top 10 Songs</b>
+								</div>
+
+								<div class="panel-body">
 									<div class="row">
-										<div ng-repeat="album in topalbums">																					
-											<div class="col-md-2">
-												<div class="square-container img-rounded" data-toggle="modal" data-target="#{{album.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
-													<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
-												</div>
-												<h4><b>{{album.name}}</b></h4>
-												<h5>by {{album.artist.name}} <i>artist name needed</i></h5>
-											</div>
-											
-											<div id="{{album.id}}" class="modal fade text-left " tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
-												<div class="modal-dialog">
-													<div class="modal-content">
-														<div class="modal-body">
-															<p> Songs Go here</p>
-														</div>
+										<div class="col-md-12">
+											<table class="table table-hover ">
+												<thead>
+													<tr>
+														<th></th>
+														<th>Title</th>
+														<th>By</th>
+														<th>Album</th>
+														<th>Duration</th>
+														<th></th>
+													</tr>
+												</thead>
+												<tbody>
+													<tr ng-repeat="song in topsongs">
+														<td width="7%">
+															<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
+																<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+																	<i class="fa fa-play fa-2x  centered"></i>
+																</a>
+															</div>
+														</td>
+														<td>
+															{{song.name}}
+														</td>
+
+														<td width="20%">
+															{{song.artists[0].name}}
+														</td>
+														<td>
+															{{song.album.name}}
+														</td>
+														<td>
+															{{song.duration_ms /60000 | number:1}} min
+														</td>
+														<td class="text-right text-nowrap">
+
+															<div class="btn-group">
+																<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false" id="dropdownPlaylists">
+																	<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+																</button>
+																<ul class="dropdown-menu" role="menu">
+																	<li>My Playlists:</li>
+																	<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
+																	</li>
+																	<input type="text" id="focus" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+																	<span class="input-group-btn">
+																	<button class="btn btn-primary" type="button" ng-click="addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+																	</button>
+																	</span>
+																</ul>
+															</div>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</div>
+									</div>
+								</div>
+
+
+							</div>
+						</div>
+					</div>
+
+
+					<div class="row">
+						<div class="col-md-12">
+							<div class="panel panel-default">
+								<div class="panel-heading"><b>Top 10 Albums</b>
+								</div>
+								<div class="panel-body">
+									<div ng-model="albums">
+										<div class="row">
+											<div ng-repeat="album in topalbums">
+												<div class="col-md-2">
+													<div class="square-container img-rounded" ng-controller="ModalAlbumCtrl">
+														<script type="text/ng-template" id="myModalContent.html">
+															<div class="modal-header">
+																<h3 class="modal-title">I'm a modal!</h3>
+															</div>
+															<div class="modal-body">
+																<ul>
+																	<li ng-repeat="item in items">
+																		<a ng-click="selected.item = item">{{ item }}</a>
+																	</li>
+																</ul>
+																Selected: <b>{{ selected.item }}</b>
+															</div>
+															<div class="modal-footer">
+																<button class="btn btn-primary" ng-click="ok()">OK</button>
+																<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+															</div>
+														</script>
+														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open()">
 													</div>
+													<h4><b>{{album.name}}</b></h4>
+													<h5>by {{album.artist.name}} <i>artist name needed</i></h5>
 												</div>
+
+
+
 											</div>
-											
+
 										</div>
 									</div>
 								</div>
