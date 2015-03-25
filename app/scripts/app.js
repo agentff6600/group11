@@ -36,7 +36,7 @@ angular.module('musicPlayerApp', [
 					}
 				}
 			})
-			.state('app.albums', {
+/*			.state('app.albums', {
 				url: "/albums",
 				views: {
 					"mainContent": {
@@ -44,7 +44,7 @@ angular.module('musicPlayerApp', [
 						templateUrl: "views/albums.html",
 					}
 				}
-			})
+			})*/
 			.state('app.playlists', {
 				url: "/playlists",
 				views: {
