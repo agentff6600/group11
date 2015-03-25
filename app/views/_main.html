@@ -124,7 +124,7 @@
 										<div class="row">
 											<div ng-repeat="album in topalbums">
 												<div class="col-md-2">
-													<div class="square-container img-rounded" ng-controller="ModalAlbumCtrl">
+													<div class="square-container img-rounded" ng-controller="ModalSongsCtrl">
 														<script type="text/ng-template" id="myModalContent.html">
 															<div class="modal-header">
 																<h3 class="modal-title">I'm a modal!</h3>
@@ -170,11 +170,28 @@
 
 								<div class="container_artist">
 									<div class="row">
-										<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2" ng-controller="AlbumsCtrl">
-											<span ng-href="" type="button" data-toggle="modal" data-target=".{{artist.id}}" aria-expanded="false" aria-controls="{{artist.id}}" ng-click="getAlbumsFromArtist(artist.id)">
+										<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2">
+											<span>
 												<div class="thumbnail">
-													<div class="square-container img-circle">
-														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
+													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl">
+														<script type="text/ng-template" id="myModalContent.html">
+															<div class="modal-header">
+																<h3 class="modal-title">I'm a modal!</h3>
+															</div>
+															<div class="modal-body">
+																<ul>
+																	<li ng-repeat="item in items">
+																		<a ng-click="selected.item = item">{{ item }}</a>
+																	</li>
+																</ul>
+																Selected: <b>{{ selected.item }}</b>
+															</div>
+															<div class="modal-footer">
+																<button class="btn btn-primary" ng-click="ok()">OK</button>
+																<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+															</div>
+														</script>
+														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive" ng-click="open()">
 													</div>
 												</div>
 											</span>

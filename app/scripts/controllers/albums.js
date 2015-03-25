@@ -6,7 +6,7 @@
  * Controller of the musicPlayerApp
  */
 angular.module('musicPlayerApp')
-	.controller('AlbumsCtrl', function ($scope, $rootScope, AlbumsModal, Spotify) {
+	.controller('AlbumsCtrl', function ($scope, $rootScope, Spotify) {
 		console.log("albums controller");
 		$scope.getAlbumsFromArtist = function (artist) {
 			//Data is retrieved only from Swedesh Market (if other country required change 'SE' string)
