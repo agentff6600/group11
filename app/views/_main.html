@@ -124,8 +124,8 @@
 										<div class="row">
 											<div ng-repeat="album in topalbums">
 												<div class="col-md-2">
-													<div class="square-container img-rounded" ng-controller="ModalSongsCtrl">
-														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open()">
+													<div class="square-container img-rounded" ng-controller="ModalSongsCtrl" ng-click="open()">
+														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive">
 													</div>
 													<h4><b>{{album.name}}</b></h4>
 													<h5>by {{album.artist.name}} <i>artist name needed</i></h5>
@@ -153,8 +153,8 @@
 										<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2">
 											<span>
 												<div class="thumbnail">
-													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl">
-														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive" ng-click="open(artist)">
+													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl" ng-click="open(artist)">
+														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
 													</div>
 												</div>
 											</span>
