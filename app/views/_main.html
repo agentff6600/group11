@@ -126,21 +126,7 @@
 												<div class="col-md-2">
 													<div class="square-container img-rounded" ng-controller="ModalSongsCtrl">
 														<script type="text/ng-template" id="ModalSongs.html">
-															<div class="modal-header">
-																<h3 class="modal-title">I'm a modal!</h3>
-															</div>
-															<div class="modal-body">
-																<ul>
-																	<li ng-repeat="item in items">
-																		<a ng-click="selected.item = item">{{ item }}</a>
-																	</li>
-																</ul>
-																Selected: <b>{{ selected.item }}</b>
-															</div>
-															<div class="modal-footer">
-																<button class="btn btn-primary" ng-click="ok()">OK</button>
-																<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-															</div>
+															
 														</script>
 														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open()">
 													</div>
@@ -176,30 +162,7 @@
 													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl">
 														<script type="text/ng-template" id="ModalAlbum.html">
 															
-															<div class="modal-body">
-																<div class="row">
-									<div class="col-md-offset-3 col-md-6">
-										<div class="thumbnail">
-											<div class="square-container img-circle ">
-												<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
-											</div>
-										</div>
-										<h1 class="text-center"><b>{{artist.name}}</b></h1>
-									</div>
-								</div>
-																
-																
-																<ul>
-																	<li ng-repeat="item in items">
-																		<a ng-click="selected.item = item">{{ item }}</a>
-																	</li>
-																</ul>
-																Selected: <b>{{ selected.item }}</b>
-															</div>
-															<div class="modal-footer">
-																<button class="btn btn-primary" ng-click="ok()">OK</button>
-																<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
-															</div>
+															
 														</script>
 														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive" ng-click="open()">
 													</div>
