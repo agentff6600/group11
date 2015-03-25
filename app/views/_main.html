@@ -153,8 +153,8 @@
 										<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2">
 											<span>
 												<div class="thumbnail">
-													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl">
-														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive" ng-click="open(artist)">
+													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl" ng-click="open(artist)">
+														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
 													</div>
 												</div>
 											</span>
