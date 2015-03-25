@@ -5,18 +5,15 @@
  * # SongsCtrl
  * Controller of the musicPlayerApp
  */
-
 angular.module('musicPlayerApp')
-  .controller('SongsCtrl', function ($scope, Spotify) {
-  	console.log("songs controller");
-
-    //$scope.isCollapsed = false;
+  .controller('SongsCtrl', function ($scope, $rootScope, $modal, $log, Spotify) {
+  	console.log("SongsCtrl");        
 
     $scope.getSongsFromAlbum = function(album){          
       Spotify.getAlbumTracks(album).then(function (data) {
-        $scope.songs = data.items;         
+        $rootScope.songs = data.items;         
 
-        for (var i = 0; i < $scope.songs.length; i++) {
+        for (var i = 0; i < $rootScope.songs.length; i++) {
           getAlbumImage(i, album);
         };        
       });
@@ -24,56 +21,45 @@ angular.module('musicPlayerApp')
 
     function getAlbumImage(i, albumId){    
     	Spotify.getAlbum(albumId).then(function (data) {            		
-  			$scope.songs[i]["images"] = data.images[0];
+  			$rootScope.songs[i]["images"] = data.images[0];
 		});
     }
+
+    $scope.open = function (album, size) {
+
+      setTimeout(function(){ 
+
+      $scope.getSongsFromAlbum(album.id);
+
+      }, 200);      
+
+      var modalInstance = $modal.open({
+        templateUrl: '/views/ModalSongs.html',
+        controller: 'ModalSongInstanceCtrl',
+        size: size,
+        resolve: {
+          items: function () {
+            return $rootScope.songs;
+          }
+        }
+      });
+
+      modalInstance.result.then(function (selectedItem) {
+        $scope.selected = selectedItem;
+      }, function () {
+        $log.info('Album Closed');
+      });
+    };
   	
   })
 
 
-
-.controller('ModalSongsCtrl', function ($scope, $modal, $log) {
-
-  $scope.items = ['item1', 'item2', 'item3'];
-
-  $scope.open = function (size) {
-
-    var modalInstance = $modal.open({
-      templateUrl: '/views/ModalSongs.html',
-      controller: 'ModalInstanceCtrl',
-      size: size,
-      resolve: {
-        items: function () {
-          return $scope.items;
-        }
-      }
-    });
-
-    modalInstance.result.then(function (selectedItem) {
-      $scope.selected = selectedItem;
-    }, function () {
-      $log.info('Modal dismissed at: ' + new Date());
-    });
-  };
-})
-
-
-
 // Please note that $modalInstance represents a modal window (instance) dependency.
 // It is not the same as the $modal service used above.
+.controller('ModalSongInstanceCtrl', function ($scope, $rootScope, $modalInstance, items) {
 
-.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {
-
-  $scope.items = items;
+  $rootScope.songs = items;
   $scope.selected = {
-    item: $scope.items[0]
-  };
-
-  $scope.ok = function () {
-    $modalInstance.close($scope.selected.item);
-  };
-
-  $scope.cancel = function () {
-    $modalInstance.dismiss('cancel');
+    item: $rootScope.songs[0]
   };
 });

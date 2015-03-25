@@ -7,7 +7,7 @@
  */
  angular.module('musicPlayerApp')
 	 .controller('ModalAlbumCtrl', function ($scope, $rootScope, $modal, $log, Spotify) {
-	 	console.log("ModalAlbumCtrl");	 
+	 	//console.log("ModalAlbumCtrl");	 
 
 	 	$scope.open = function (artist, size) {	 		
 
@@ -22,7 +22,7 @@
 
 						var modalInstance = $modal.open({
 							templateUrl: '/views/ModalAlbum.html',
-							controller: 'ModalInstanceCtrl',
+							controller: 'ModalAlbumInstanceCtrl',
 							size: size,
 							resolve: {
 								items: function () {								
@@ -34,7 +34,7 @@
 						modalInstance.result.then(function (selectedItem) {	
 							$scope.selected = selectedItem;
 						}, function () {
-							$log.info('Modal dismissed at: ' + new Date());
+							$log.info('Modal Closed');
 						});										
 					});						
 				};
@@ -44,7 +44,7 @@
 
 	// Please note that $modalInstance represents a modal window (instance) dependency.
 	// It is not the same as the $modal service used above.
-	.controller('ModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, items) {		
+	.controller('ModalAlbumInstanceCtrl', function ($scope, $rootScope, $modalInstance, items) {		
 
 		$rootScope.albumsOfArtist = items;		
 		$scope.selected = {

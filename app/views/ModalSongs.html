@@ -1,14 +1,1 @@
-<div class="modal-body">
-	<ul>
-		<li ng-repeat="item in items">
-			<a ng-click="selected.item = item">{{ item }}</a>
-		</li>
-	</ul>
-	Selected: <b>{{ selected.item }}</b>
-	
-	<div ng-include src="'views/albums.html'"></div>
-	
-	<div class="well">
-		<div ng-include src="'views/songs.html'"></div>
-	</div>
-</div>
+<div ng-include src="'views/songs.html'"></div>
