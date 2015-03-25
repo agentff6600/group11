@@ -23,15 +23,6 @@ angular.module('musicPlayerApp')
 			});
 		}
 
-		var modalOptions = {
-			closeButtonText: 'Close',
-			actionButtonText: 'Delete Customer',
-			headerText: 'Delete ',
-			bodyText: 'Are you sure you want to delete this customer?'
-		};
-		$scope.modalService.showModal({}, modalOptions).then(function () {
-			console.log("Albums");
-		});
 	})
 
 
@@ -43,7 +34,7 @@ angular.module('musicPlayerApp')
 	$scope.open = function (size) {
 
 		var modalInstance = $modal.open({
-			templateUrl: 'myModalContent.html',
+			templateUrl: '/views/ModalAlbum.html',
 			controller: 'ModalInstanceCtrl',
 			size: size,
 			resolve: {

@@ -38,7 +38,7 @@ angular.module('musicPlayerApp')
   $scope.open = function (size) {
 
     var modalInstance = $modal.open({
-      templateUrl: 'myModalContent.html',
+      templateUrl: '/views/ModalSongs.html',
       controller: 'ModalInstanceCtrl',
       size: size,
       resolve: {
