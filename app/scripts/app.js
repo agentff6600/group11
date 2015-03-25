@@ -2,7 +2,7 @@
  * Main module of the application.
  */
 angular.module('musicPlayerApp', [
-    'ui.router', 'spotify', 'angucomplete-alt', 'ngDragDrop'
+    'ui.router', 'spotify', 'angucomplete-alt', 'ngDragDrop', 'ui.bootstrap'
   ])
 	.config(['$stateProvider', '$urlRouterProvider', 'SpotifyProvider', function ($stateProvider, $urlRouterProvider, SpotifyProvider) {
 

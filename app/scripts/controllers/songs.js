@@ -5,8 +5,9 @@
  * # SongsCtrl
  * Controller of the musicPlayerApp
  */
+
 angular.module('musicPlayerApp')
-  .controller('SongsCtrl', function ($scope, Spotify) {
+  .controller('SongsCtrl', function ($scope, SongsModal, Spotify) {
   	console.log("songs controller");
 
     $scope.getSongsFromAlbum = function(album){
