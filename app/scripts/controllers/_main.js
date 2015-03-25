@@ -32,8 +32,7 @@
     else if((parameter != "") || (parameter != null) && (play === true))
     {
       $scope.top = false;
-      $("#iframe").attr('src', parameter); 
-      console.log(top);
+      $("#iframe").attr('src', parameter);       
     }    
   }
   
