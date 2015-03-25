@@ -45,11 +45,41 @@ angular.module('musicPlayerApp')
       });
 
       modalInstance.result.then(function (selectedItem) {
-        $scope.selected = selectedItem;
+        $rootScope.selected = selectedItem;
       }, function () {
         $log.info('Album Closed');
       });
     };
+
+    $scope.openArtists = function (artist, size) {     
+
+          $rootScope.artistModal = artist;          
+
+          //Data is retrieved only from Swedesh Market (if other country required change 'SE' string)
+          //Limited to 20 Albums (can be extended to maximum 50 - just add in {limit: 50})
+          Spotify.getArtistAlbums(artist.id, {
+            country: 'SE'
+          }).then(function (data) {         
+            $rootScope.albumsOfArtist = data.items;             
+
+            var modalInstance = $modal.open({
+              templateUrl: '/views/ModalAlbum.html',
+              controller: 'ModalAlbumInstanceCtrl',
+              size: size,
+              resolve: {
+                items: function () {                
+                  return $rootScope.albumsOfArtist;
+                }
+              }
+            });
+
+            modalInstance.result.then(function (selectedItem) { 
+              $rootScope.selected = selectedItem;
+            }, function () {
+              $log.info('Modal Closed');
+            });                   
+          });           
+        };
   	
   })
 
@@ -59,7 +89,7 @@ angular.module('musicPlayerApp')
 .controller('ModalSongInstanceCtrl', function ($scope, $rootScope, $modalInstance, items) {
 
   $rootScope.songs = items;
-  $scope.selected = {
+  $rootScope.selected = {
     item: $rootScope.songs[0]
   };
 });

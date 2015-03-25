@@ -66,7 +66,7 @@
 														<td width="7%">
 															<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
 																<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
-																	<i class="fa fa-play fa-2x  centered"></i>
+																	<i class="fa fa-play fa-2x  centered" ng-click="$root.handlePlayer(true, song.preview_url)"></i>
 																</a>
 															</div>
 														</td>
@@ -125,10 +125,10 @@
 											<div ng-repeat="album in topalbums">
 												<div class="col-md-2">
 													<div class="square-container img-rounded" ng-controller="SongsCtrl">
-														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open(album)">
+														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open(album); openArtists()">
 													</div>
 													<h4><b>{{album.name}}</b></h4>
-													<h5>by {{album.artist.name}} <i>artist name needed</i></h5>
+													<h5>by  <i>{{album.artist}}</i></h5>
 												</div>
 											</div>
 
@@ -218,18 +218,18 @@
 								<tr>
 									<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="right">
 										<a>
-											<i class="fa fa-pause fa-2x" ng-click="removeSrc()"></i>
+											<i class="fa fa-pause fa-2x" ng-click="$root.handlePlayer(false)"></i>
 										</a>
 									</td>
 									<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="center">
 										<a>
-											<i class="fa fa-play fa-3x" ng-click="passSrc(queue[0].preview_url)"></i>
+											<i class="fa fa-play fa-3x" ng-click="$root.handlePlayer(true, queue[0].preview_url, true)"></i>
 										</a>
 
 									</td>
 									<td style="vertical-align: middle; border-top: 0 solid #ddd;" align="left">
 										<a>
-											<i class="fa fa-step-forward fa-2x" ng-show="queue[1]" ng-click="removeFirstSongFromQueue()"></i>
+											<i class="fa fa-step-forward fa-2x" ng-show="queue[1]" ng-click="$root.removeFirstSongFromQueue()"></i>
 										</a>
 									</td>
 								</tr>
@@ -255,7 +255,7 @@
 
 
 				<div class="list-group-item" ng-repeat="song in $root.queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.queue" jqyoui-draggable="{index: {{$index}},animate:true}">
-					<h5 class="list-group-item-heading"><b>{{song.name}}</b> by {{song.artists[0].name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromQueue(song)"></a></h5>
+					<h5 class="list-group-item-heading"><b>{{song.name}}</b> by {{song.artists[0].name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="$root.removeSongFromQueue(song)"></a></h5>
 				</div>
 				<h3 class="text-center text-primary">Drøp</h3>
 				<h3 class="text-center text-primary">Søng</h3>

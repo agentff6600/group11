@@ -79,13 +79,15 @@ $("#thumbnail").remove();
 
     $scope.playlists[id].playlist.songs.push(song);
 
-    //console.log($scope.playlists[2].playlist.songs[0].album.images[0].url);
+    //console.log($scope.playlists[2].playlist.songs[0].album.images[0].url);    
  }
 
 
  $scope.addSongToTheQueue = function(song){
 
    $rootScope.queue.push(song);
+
+   //$rootScope.handlePlayer(true, song.preview_url);  
  }
 
  $scope.removeSongFromPlaylist = function(playlistId, song){      
@@ -97,7 +99,7 @@ $("#thumbnail").remove();
 
  }
 
-$scope.removeSongFromQueue = function(song){     
+$rootScope.removeSongFromQueue = function(song){  
   for (var i = 0; i < $rootScope.queue.length; i++) {    
     if($rootScope.queue[i] === song)
     {                    
@@ -106,23 +108,25 @@ $scope.removeSongFromQueue = function(song){
     } 
   };
 
-  $rootScope.removeSrc();
+  $rootScope.handlePlayer(false);
   if($rootScope.queue.length != 0)
   {
-    $rootScope.passSrc($rootScope.queue[0].preview_url);  
+    $rootScope.handlePlayer(true, $rootScope.queue[0].preview_url);  
   }
+
+  console.log($rootScope.queue);
 }
 
-$scope.removeFirstSongFromQueue = function(){     
+$rootScope.removeFirstSongFromQueue = function(){     
   $rootScope.queue.shift();
 
   if($rootScope.queue.length != 0)
   {
-      $rootScope.passSrc($rootScope.queue[0].preview_url);
+      $rootScope.handlePlayer(true, $rootScope.queue[0].preview_url, true);
   }
   else
   {
-       $rootScope.removeSrc();
+       $rootScope.handlePlayer(false);
   }
 }
 
