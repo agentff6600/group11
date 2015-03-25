@@ -3,14 +3,16 @@
 	<div ng-include src="'views/artists.html'"></div>
 
 	<div ng-controller="SongsCtrl">
-		<ul>
-			<li ng-repeat="item in albumsOfArtist">
-				<a ng-click="selected.item = item; getSongsFromAlbum(selected.item.id); isCollapsed = !isCollapsed">{{ item.name }}</a>
+			<div ng-repeat="item in albumsOfArtist">
+				
+				<div class="list-group-item" ng-click="selected.item = item; getSongsFromAlbum(selected.item.id); isCollapsed = !isCollapsed">
+						<div ng-include src="'views/albums.html'">{{ item.name }}</div>
+				</div>
+
 				<div collapse="!isCollapsed">
 					<div class="well well-lg">
 						<div ng-include src="'views/songs.html'"></div>
 					</div>
 				</div>
-			</li>		
-		</ul>
+			</div>		
 	</div>
