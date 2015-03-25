@@ -70,4 +70,10 @@ angular.module('musicPlayerApp')
 	$scope.cancel = function () {
 		$modalInstance.dismiss('cancel');
 	};
+})
+
+//Collapse
+
+.controller('CollapseAlbumCtrl', function ($scope) {
+  $scope.isCollapsed = false;
 });
