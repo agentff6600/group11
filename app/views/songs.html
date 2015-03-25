@@ -1,28 +1,28 @@
 <div class="caption">
 	<button class="btn btn-primary col-md-12" type="submit"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play Album</button>
 </div>
-<div class="voffset5"></div>
+
 <div class="row">
 	<div class="col-md-12">
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th>N°</th>
+					<th>N</th>
 					<th>Title</th>
 					<th>Duration</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-				<tr ng-repeat="song in album">
+				<tr ng-repeat="song in songs">
 					<td>
 						<b>{{song.track_number}}.</b>
 					</td>
-					<td class="drag" ng-href="" data-toggle="modal" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
+					<td class="drag" ng-href="" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true}">
 						{{song.name}}
 					</td>
 					<td>
-						{{song.duration_ms}}
+						{{song.duration_ms /60000 | number:1}} min
 					</td>
 					<td class="text-right text-nowrap">
 						<div class="btn-group">
@@ -30,13 +30,9 @@
 								<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
-								<li>My Playlists:
-								</li>
 								<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
 								</li>
-								<li>
-									<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
-								</li>
+								<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 							</ul>
 						</div>
 					</td>
@@ -44,4 +40,5 @@
 			</tbody>
 		</table>
 	</div>
+</div>
 </div>
