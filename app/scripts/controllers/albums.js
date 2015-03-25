@@ -7,18 +7,18 @@
  */
  angular.module('musicPlayerApp')
 	 .controller('ModalAlbumCtrl', function ($scope, $rootScope, $modal, $log, Spotify) {
-	 	console.log("ModalAlbumCtrl");
+	 	console.log("ModalAlbumCtrl");	 
 
-	 	$scope.items = ['item1', 'item2', 'item3'];		
+	 	$scope.open = function (artist, size) {	 		
 
-	 	$scope.open = function (artistId, size) {
+	 				$rootScope.artistModal = artist;	 				
 
 					//Data is retrieved only from Swedesh Market (if other country required change 'SE' string)
 					//Limited to 20 Albums (can be extended to maximum 50 - just add in {limit: 50})
-					Spotify.getArtistAlbums(artistId, {
+					Spotify.getArtistAlbums(artist.id, {
 						country: 'SE'
 					}).then(function (data) {					
-						$scope.albumsOfArtist = data.items;	
+						$rootScope.albumsOfArtist = data.items;							
 
 						var modalInstance = $modal.open({
 							templateUrl: '/views/ModalAlbum.html',
@@ -26,12 +26,12 @@
 							size: size,
 							resolve: {
 								items: function () {								
-									return $scope.items;
+									return $rootScope.albumsOfArtist;
 								}
 							}
 						});
 
-						modalInstance.result.then(function (selectedItem) {												
+						modalInstance.result.then(function (selectedItem) {	
 							$scope.selected = selectedItem;
 						}, function () {
 							$log.info('Modal dismissed at: ' + new Date());
@@ -46,11 +46,11 @@
 
 	// Please note that $modalInstance represents a modal window (instance) dependency.
 	// It is not the same as the $modal service used above.
-	.controller('ModalInstanceCtrl', function ($scope, $modalInstance, items) {		
+	.controller('ModalInstanceCtrl', function ($scope, $rootScope, $modalInstance, items) {		
 
-		$scope.items = items;		
+		$rootScope.albumsOfArtist = items;		
 		$scope.selected = {
-			item: $scope.items[0]
+			item: $rootScope.albumsOfArtist[0]
 		};		
 
 		$scope.ok = function () {
