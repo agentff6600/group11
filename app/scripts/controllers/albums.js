@@ -37,8 +37,6 @@
 							$log.info('Modal dismissed at: ' + new Date());
 						});										
 					});						
-
-
 				};
 
 			})
@@ -52,19 +50,4 @@
 		$scope.selected = {
 			item: $rootScope.albumsOfArtist[0]
 		};		
-
-		$scope.ok = function () {
-			$modalInstance.close($scope.selected.item);
-		};
-
-		$scope.cancel = function () {
-			$modalInstance.dismiss('cancel');
-		};
-	})
-
-
-	//Collapse
-
-	.controller('CollapseAlbumCtrl', function ($scope) {
-	  $scope.isCollapsed = false;
 	});
