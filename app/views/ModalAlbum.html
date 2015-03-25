@@ -6,7 +6,7 @@
 			<div ng-repeat="item in albumsOfArtist">
 				
 				<div class="list-group-item" ng-click="selected.item = item; getSongsFromAlbum(selected.item.id); isCollapsed = !isCollapsed">
-						<div ng-include src="'views/albums.html'">{{ item.name }}</div>
+						<div ng-include src="'views/albums.html'"></div>
 				</div>
 
 				<div collapse="!isCollapsed">
