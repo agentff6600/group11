@@ -11,7 +11,8 @@ angular.module('musicPlayerApp')
 
     $scope.getSongsFromAlbum = function(album){          
       Spotify.getAlbumTracks(album).then(function (data) {
-        $rootScope.songs = data.items;         
+        $rootScope.songs = data.items; 
+        $rootScope.artist_name=$rootScope.songs[0].artists[0].name;    
 
         for (var i = 0; i < $rootScope.songs.length; i++) {
           getAlbumImage(i, album);
@@ -28,11 +29,9 @@ angular.module('musicPlayerApp')
     $scope.open = function (album, size) {
 
       setTimeout(function(){ 
-
       $scope.getSongsFromAlbum(album.id);
 
       }, 200);      
-
       var modalInstance = $modal.open({
         templateUrl: '/views/ModalSongs.html',
         controller: 'ModalSongInstanceCtrl',
@@ -49,6 +48,8 @@ angular.module('musicPlayerApp')
       }, function () {
         $log.info('Album Closed');
       });
+      $rootScope.img=album.images[0].url
+      $rootScope.name=album.name;
     };
 
     $scope.playAll = function(songs)
@@ -60,8 +61,8 @@ angular.module('musicPlayerApp')
 
     $scope.openArtists = function (artist, size) {     
 
-          $rootScope.artistModal = artist;          
-
+          //$rootScope.artistModal = artist;          
+          console.log(artist);
           //Data is retrieved only from Swedesh Market (if other country required change 'SE' string)
           //Limited to 20 Albums (can be extended to maximum 50 - just add in {limit: 50})
           Spotify.getArtistAlbums(artist.id, {
