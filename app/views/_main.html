@@ -193,14 +193,17 @@
 					<div>
 						<h1 class="text-center"> </h1>
 					</div>
+					<!--
 					<div class="progress" style=" margin-bottom: 0px; ">
 						<div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 30%">
 						</div>
 					</div>
+-->
 
 					<div class="text-white">
 						<table class="table">
 							<tbody>
+								<!--
 								<tr>
 									<td align="left" style="border-top: 0 solid #ddd;">
 										00:00
@@ -212,6 +215,7 @@
 										00:00
 									</td>
 								</tr>
+-->
 								<tr>
 									<td style="border-top: 0 solid #ddd;"></td>
 								</tr>
@@ -244,7 +248,7 @@
 		<!-- QUEUE -->
 		<!-- Filters have to be applied (in ng-repeat & here) in order to show newly added song at the top -->
 
-		<h2 class="text-center text-white">Queue</h2>
+		<h3 class="text-center text-white">Queue</h3>
 
 		<div id="player">
 			<iframe id="iframe" style="display:none" src=""></iframe>
@@ -252,20 +256,39 @@
 
 		<div class="thumbnail queue">
 			<div class="caption">
+				<h3 class="text-center text-primary"><i class="fa fa-sign-in fa-2x fa-rotate-90"></i></h3>
+				<table class="table">
+					<thead class="text-white">
+						<th>Song
+						</th>
+						<th>by
+						</th>
+						<th>
+						</th>
+					</thead>
+					<tbody>
+						<tr class="text-white" ng-repeat="song in $root.queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.queue" jqyoui-draggable="{index: {{$index}},animate:true}">
+							<td>
+								<b>{{ song.name }}</b>
+							</td>
 
+							<td>
+								{{song.artists[0].name}}
+							</td>
 
-				<div class="list-group-item" ng-repeat="song in $root.queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.queue" jqyoui-draggable="{index: {{$index}},animate:true}">
-					<h5 class="list-group-item-heading"><b>{{song.name}}</b> by {{song.artists[0].name}}<a class="glyphicon glyphicon-remove pull-right" ng-click="$root.removeSongFromQueue(song)"></a></h5>
-				</div>
-				<h3 class="text-center text-primary">Drøp</h3>
-				<h3 class="text-center text-primary">Søng</h3>
-				<h3 class="text-center text-primary">Here</h3>
-				<h3 class="text-center text-primary"><span class="glyphicon glyphicon-music"></span></h3>
+							<td>
+								<a class="glyphicon glyphicon-remove pull-right" ng-click="$root.removeSongFromQueue(song)"></a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
 			</div>
+
 		</div>
 	</div>
+</div>
 
-	<!--this should move later to the player.html-->
+<!--this should move later to the player.html-->
 </div>
 </div>
 </div>

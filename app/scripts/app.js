@@ -15,7 +15,7 @@ angular.module('musicPlayerApp', [
 				url: "",
 				templateUrl: "views/_main.html",
 				controller: "MainCtrl",				
-				page: 'home',
+				
 								
 			})
 			.state('app.home', {
