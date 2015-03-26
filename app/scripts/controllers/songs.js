@@ -51,6 +51,13 @@ angular.module('musicPlayerApp')
       });
     };
 
+    $scope.playAll = function(songs)
+    {           
+      for (var i = 0; i < songs.length; i++) {        
+        $rootScope.queue.push(songs[i]);
+      };
+    }
+
     $scope.openArtists = function (artist, size) {     
 
           $rootScope.artistModal = artist;          

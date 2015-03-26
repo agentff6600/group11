@@ -47,15 +47,14 @@
 
   var artistq=["Coldplay","Maroon 5","Rihanna","Beyonce","Buble","Taylor Swift","Sia","Hozier","One Direction","Fall out boy"];
   var albumsq=["In the lonely hour","rebel heart","x","chasing yesterday","wanted on voyage","a perfect contradiction","lady sings the blues","1989","royal blood","sweet soul music"];
-  var songsq=["Uptown Funk!","sugar","thinking out loud","love me like you do","FourFiveSeconds","Earned it","Style","Lay me down","Time of our lives","Trap queen"];
+  var songsq=["Uptown Funk!","sugar","thinking out loud","love me like you do","FourFiveSeconds","Earned it","Style","Lay me down","Time of our lives","Trap queen"];  
 
   for (var i = 0; i < artistq.length; i++) {
-   Spotify.search(artistq[i],'artist', {limit:'1'}).then(function (data) {       
+   Spotify.search(artistq[i],'artist', {limit:'1'}).then(function (data) {     
     if(data.artists.items.length >0){
      $scope.topartists.push(data.artists.items[0]);
    }
- });  
-
+ }); 
  };
 
  for (var i = 0; i < albumsq.length; i++) {

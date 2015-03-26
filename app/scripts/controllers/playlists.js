@@ -33,7 +33,7 @@
 
  });
 
-   $scope.playlists = {};    
+   $rootScope.playlists = {};    
 
    $rootScope.queue = [];     
 
@@ -44,7 +44,7 @@
 
    function totalSongs(playlistId)
    {
-      var total = $scope.playlists[playlistId].playlist.songs.length;
+      var total = $rootScope.playlists[playlistId].playlist.songs.length;
       $rootScope.totalSongs = total;
 
       return total;
@@ -53,13 +53,13 @@
 
    $scope.playAll = function(playlistId)
    {           
-      for (var i = 0; i < $scope.playlists[playlistId].playlist.songs.length; i++) {
-        $scope.addSongToTheQueue($scope.playlists[playlistId].playlist.songs[i]);
+      for (var i = 0; i < $rootScope.playlists[playlistId].playlist.songs.length; i++) {
+        $scope.addSongToTheQueue($rootScope.playlists[playlistId].playlist.songs[i]);
       };
    }
 
    $scope.addNewPlaylist = function(name){          
-    //$scope.playlists.push(new Playlist(name)); 
+    //$rootScope.playlists.push(new Playlist(name)); 
     
     var plId = _.uniqueId();
 
@@ -69,7 +69,7 @@
       playlist: new Playlist(name)
     };
 
-    $scope.playlists[plId] = playlist;
+    $rootScope.playlists[plId] = playlist;
     $rootScope.plId = plId;
   }
   
@@ -77,9 +77,9 @@ $("#thumbnail").remove();
 
   $scope.addSongToPlaylist = function(id, song){
 
-    $scope.playlists[id].playlist.songs.push(song);
+    $rootScope.playlists[id].playlist.songs.push(song);
 
-    //console.log($scope.playlists[2].playlist.songs[0].album.images[0].url);    
+    //console.log($rootScope.playlists[2].playlist.songs[0].album.images[0].url);    
  }
 
 
@@ -91,8 +91,8 @@ $("#thumbnail").remove();
  }
 
  $scope.removeSongFromPlaylist = function(playlistId, song){      
-    var index = $scope.playlists[playlistId].playlist.songs.indexOf(song);     
-    $scope.playlists[playlistId].playlist.songs.splice(index, 1);
+    var index = $rootScope.playlists[playlistId].playlist.songs.indexOf(song);     
+    $rootScope.playlists[playlistId].playlist.songs.splice(index, 1);
 
     totalSongs(playlistId);
 
@@ -132,7 +132,7 @@ $rootScope.removeFirstSongFromQueue = function(){
 
 $scope.removePlaylist = function(playlistid)
 {  
-  delete $scope.playlists[playlistid];
+  delete $rootScope.playlists[playlistid];
 }
 
 $scope.getArtistsAlbum = function(artistId){     
