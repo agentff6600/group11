@@ -12,7 +12,7 @@ angular.module('musicPlayerApp')
     $scope.getSongsFromAlbum = function(album){          
       Spotify.getAlbumTracks(album).then(function (data) {
         $rootScope.songs = data.items; 
-        $rootScope.artist_name=$rootScope.songs[0].artists[0].name;    
+       $rootScope.artist_name=$rootScope.songs[0].artists[0].name;    
 
         for (var i = 0; i < $rootScope.songs.length; i++) {
           getAlbumImage(i, album);
@@ -27,7 +27,8 @@ angular.module('musicPlayerApp')
     }
 
     $scope.open = function (album, size) {
-
+      $rootScope.show=1;
+      console.log("songs",$rootScope.show);
       setTimeout(function(){ 
       $scope.getSongsFromAlbum(album.id);
 
