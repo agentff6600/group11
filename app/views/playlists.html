@@ -12,7 +12,7 @@
 
 					<span class="input-group-btn">
 						<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
-					</button>
+						</button>
 					</span>
 				</div>
 			</div>
@@ -34,11 +34,11 @@
 
 				<div class="voffset3"></div>
 				<h4 align="center">{{playlist.name}}<a class="glyphicon glyphicon-trash pull-right" ng-click="removePlaylist(playlist.id)"></a></h4>
-				</button>
+			</button>
 
-			</div>
 		</div>
 	</div>
+</div>
 </div>
 
 <div class="voffset3">
@@ -129,13 +129,20 @@
 														</button>
 														<ul class="dropdown-menu" role="menu">
 															<li ng-repeat="playlist in $root.playlists" ng-click="$root.addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
-															</li>
-															<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="$root.addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+															</li>														
+															<div class="input-group">
+																<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="$root.addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+
+																<span class="input-group-btn">
+																	<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+																	</button>
+																</span>
+															</div>
 														</ul>
 													</div>
 												</td>
 												<td>
-												<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromPlaylist($root.plId, song)"></a>
+													<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromPlaylist($root.plId, song)"></a>
 												</td>
 											</tr>
 										</tbody>

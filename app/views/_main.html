@@ -10,127 +10,109 @@
 						<button ng-click="toggleSidebar()" type="button" class="navbar-toggle collapsed btn navbar-btn"><span class="fa fa-caret-square-o-left fa-lg"></span>
 						</button>
 					-->
-						<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-							<span class="sr-only">Toggle navigation</span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-							<span class="icon-bar"></span>
-						</button>
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
 
-						<a class="navbar-brand" href="/#"><i class="fa fa-music "></i>  Plyr</a>
-					</div>
-
-					<!-- Collect the nav links, forms, and other content for toggling -->
-					<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-						<ul class="nav navbar-nav">
-							<form class="navbar-form navbar-left" ng-controller="HomeCtrl" ng-keyup="searchFor()">
-								<input type="text" ng-model="$root.query" class="form-control" placeholder="Search">
-							</form>
-							<li ng-click="page = 'home'" ng-class="{'active' : page == 'home'}">
-								<a ng-href="#/toplists">Toplists</a>
-							</li>
-							<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
-								<a ng-href="#/playlists"> Your Playlists</a>
-							</li>
-						</ul>
-					</div>
+					<a class="navbar-brand" href="/#"><i class="fa fa-music "></i>  Plyr</a>
 				</div>
-			</nav>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<form class="navbar-form navbar-left" ng-controller="HomeCtrl" ng-keyup="searchFor()">
+							<input type="text" ng-model="$root.query" class="form-control" placeholder="Search">
+						</form>
+						<li ng-click="page = 'home'" ng-class="{'active' : page == 'home'}">
+							<a ng-href="#/toplists">Toplists</a>
+						</li>
+						<li ng-click="page = 'playlists'" ng-class="{'active' : page == 'playlists'}">
+							<a ng-href="#/playlists"> Your Playlists</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</nav>
 
 
-			<div id="mp_view" ui-view="mainContent">
+		<div id="mp_view" ui-view="mainContent">
 
-				<div class="container-fluid">
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><b>Top 10 Songs</b>
-								</div>
-
-								<div class="panel-body">
-									<div class="row">
-										<div class="col-md-12">
-											<table class="table table-hover ">
-												<thead>
-													<tr>
-														<th></th>
-														<th>Title</th>
-														<th>By</th>
-														<th>Album</th>
-														<th>Duration</th>
-														<th></th>
-													</tr>
-												</thead>
-												<tbody>
-													<tr ng-repeat="song in topsongs">
-														<td width="7%" style="vertical-align: middle;">
-															<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
-																<a ng-href="" ng-click="$root.handlePlayer(true, song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
-																	<i class="fa fa-play fa-2x  centered" ng-click="$root.handlePlayer(true, song.preview_url)"></i>
-																</a>
-															</div>
-														</td>
-														<td style="vertical-align: middle;">
-															<b>{{song.name}}</b>
-														</td>
-
-														<td width="20%" style="vertical-align: middle;">
-															{{song.artists[0].name}}
-														</td>
-														<td style="vertical-align: middle;">
-															{{song.album.name}}
-														</td>
-														<td style="vertical-align: middle;">
-															{{song.duration_ms /60000 | number:0}}m {{song.duration_ms /1000 % 60 | number:0}}s
-														</td>
-														<td class="text-right text-nowrap" style="vertical-align: middle;">
-
-															<div class="btn-group" dropdown is-open="status.isopen">
-																<button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
-																	<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
-																</button>
-																<ul class="dropdown-menu" role="menu">
-																	<li ng-repeat="playlist in playlists" ng-click="addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}}</a>
-																	</li>
-																</ul>
-															</div>
-															
-														</td>
-													</tr>
-												</tbody>
-											</table>
-										</div>
-									</div>
-								</div>
-
-
+			<div class="container-fluid">
+				<div class="row">
+					<div class="col-md-12">
+						<div class="panel panel-default">
+							<div class="panel-heading"><b>Top 10 Songs</b>
 							</div>
-						</div>
-					</div>
 
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-12">
+										<table class="table table-hover ">
+											<thead>
+												<tr>
+													<th></th>
+													<th>Title</th>
+													<th>By</th>
+													<th>Album</th>
+													<th>Duration</th>
+													<th></th>
+												</tr>
+											</thead>
+											<tbody>
+												<tr ng-repeat="song in topsongs">
+													<td width="7%" style="vertical-align: middle;">
+														<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
+															<a ng-href="" ng-click="$root.handlePlayer(true, song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+																<i class="fa fa-play fa-2x  centered" ng-click="$root.handlePlayer(true, song.preview_url)"></i>
+															</a>
+														</div>
+													</td>
+													<td style="vertical-align: middle;">
+														<b>{{song.name}}</b>
+													</td>
 
-					<div class="row">
-						<div class="col-md-12">
-							<div class="panel panel-default">
-								<div class="panel-heading"><b>Top 10 Albums</b>
-								</div>
-								<div class="panel-body">
-									<div ng-model="albums">
-										<div class="row">
-											<div ng-repeat="album in topalbums">
-												<div class="col-md-2">
-													<div class="square-container img-rounded" ng-controller="SongsCtrl">
-														<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open(album); openArtists()">
-													</div>
-													<h4><b>{{album.name}}</b></h4>
-													<h5>by  <i>{{album.artist}}</i></h5>
-												</div>
-											</div>
+													<td width="20%" style="vertical-align: middle;">
+														{{song.artists[0].name}}
+													</td>
+													<td style="vertical-align: middle;">
+														{{song.album.name}}
+													</td>
+													<td style="vertical-align: middle;">
+														{{song.duration_ms /60000 | number:0}}m {{song.duration_ms /1000 % 60 | number:0}}s
+													</td>
+													<td class="text-right text-nowrap" style="vertical-align: middle;">
 
-										</div>
+														<div class="btn-group" dropdown is-open="status.isopen">
+															<button type="button" class="btn btn-default dropdown-toggle" dropdown-toggle ng-disabled="disabled">
+																<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+															</button>
+															<ul class="dropdown-menu" role="menu">
+																<li ng-repeat="playlist in $root.playlists" ng-click="$root.addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}}</a>
+																</li>
+
+																<div class="input-group">
+																	<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="$root.addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
+
+																	<span class="input-group-btn">
+																		<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+																		</button>
+																	</span>
+																</div>
+															</ul>
+														</div>
+
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
 								</div>
 							</div>
+
+
 						</div>
 					</div>
 				</div>
@@ -139,22 +121,21 @@
 				<div class="row">
 					<div class="col-md-12">
 						<div class="panel panel-default">
-							<div class="panel-heading"><b>Top 10 Artist</b>
+							<div class="panel-heading"><b>Top 10 Albums</b>
 							</div>
 							<div class="panel-body">
-
-								<div class="container_artist">
+								<div ng-model="albums">
 									<div class="row">
-										<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2">
-											<span>
-												<div class="thumbnail">
-													<div class="square-container img-circle" ng-controller="ModalAlbumCtrl" ng-click="open(artist)">
-														<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
-													</div>
+										<div ng-repeat="album in topalbums">
+											<div class="col-md-2">
+												<div class="square-container img-rounded" ng-controller="SongsCtrl">
+													<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open(album); openArtists()">
 												</div>
-											</span>
-											<h4 class="text-center"><b>{{artist.name}}</b></h4>
+												<h4><b>{{album.name}}</b></h4>
+												<h5>by  <i>{{album.artist}}</i></h5>
+											</div>
 										</div>
+
 									</div>
 								</div>
 							</div>
@@ -164,8 +145,36 @@
 			</div>
 
 
+			<div class="row">
+				<div class="col-md-12">
+					<div class="panel panel-default">
+						<div class="panel-heading"><b>Top 10 Artist</b>
+						</div>
+						<div class="panel-body">
+
+							<div class="container_artist">
+								<div class="row">
+									<div ng-repeat="artist in topartists" class="col-xs-6 col-sm-4 col-md-2">
+										<span>
+											<div class="thumbnail">
+												<div class="square-container img-circle" ng-controller="ModalAlbumCtrl" ng-click="open(artist)">
+													<img ng-src="{{artist.images[0].url}}" alt="" class="img img-rounded img-responsive">
+												</div>
+											</div>
+										</span>
+										<h4 class="text-center"><b>{{artist.name}}</b></h4>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
+
+
 	</div>
+</div>
 </div>
 
 
@@ -233,7 +242,7 @@
 			<div class="caption">
 				<h3 class="text-center text-primary"><i class="fa fa-sign-in fa-2x fa-rotate-90"></i></h3>
 				<table class="table">
-					<thead class="text-primary">
+					<thead class="text-primary" ng-show="$root.queue[0]">
 						<th></th>
 						<th>Song</th>
 						<th>by</th>
@@ -241,7 +250,7 @@
 					</thead>
 					<tbody>
 						<tr class="text-white" ng-repeat="song in $root.queue track by $index" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.queue" jqyoui-draggable="{index: {{$index}},animate:true}">
-							<td width="25%" ><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+							<td width="25%" ><img n-href="" ng-src="{{song.album.images[0].url || song.images.url}}" alt="" class="img-rounded img-responsive">
 							</td>
 							<td>
 								<b>{{ song.name }}</b>
