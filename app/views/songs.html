@@ -8,6 +8,7 @@
 			<thead>
 				<tr>
 					<th>N</th>
+					<th>Preview</th>
 					<th>Title</th>
 					<th>Duration</th>
 					<th></th>
@@ -17,6 +18,9 @@
 				<tr ng-repeat="song in $root.songs">
 					<td style="vertical-align: middle">
 						<b>{{song.track_number}}.</b>
+					</td>
+					<td>
+						<i class="fa fa-play fa-1x center" ng-click="$root.handlePlayer(true, song.preview_url)"></i>
 					</td>
 					<td style="vertical-align: middle" class="drag" ng-href="" data-target="#{{album.id}}" data-drag="true" data-jqyoui-options="{revert: 'invalid'}" ng-model="songs" jqyoui-draggable="{index: {{$index}},animate:true, placeholder:'keep'}">
 						{{song.name}}
