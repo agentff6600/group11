@@ -25,10 +25,10 @@
    Spotify.getAlbumTracks('2G4AUqfwxcV1UdQjm2ouYr').then(function (data) {
     $scope.temporary = data.items; 
 
-    $scope.addNewPlaylist("My cool Playlist");       
+    $rootScope.addNewPlaylist("My cool Playlist");       
 
     for (var i = 0; i < $scope.topsongs.length; i++) {
-     $scope.addSongToPlaylist(1, $scope.topsongs[i]);
+     $rootScope.addSongToPlaylist(1, $scope.topsongs[i]);
    }; 		   
 
  });
@@ -58,8 +58,7 @@
       };
    }
 
-   $scope.addNewPlaylist = function(name){          
-    //$rootScope.playlists.push(new Playlist(name)); 
+   $rootScope.addNewPlaylist = function(name){              
     
     var plId = _.uniqueId();
 
@@ -75,7 +74,7 @@
   
 $("#thumbnail").remove();
 
-  $scope.addSongToPlaylist = function(id, song){
+  $rootScope.addSongToPlaylist = function(id, song){
 
     $rootScope.playlists[id].playlist.songs.push(song);
 

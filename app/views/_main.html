@@ -65,7 +65,7 @@
 													<tr ng-repeat="song in topsongs">
 														<td width="7%">
 															<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="topsongs" jqyoui-draggable="{index: {{$index}},animate:true}">
-																<a ng-href="" ng-click="passSrc(song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
+																<a ng-href="" ng-click="$root.handlePlayer(true, song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url}}" alt="" class="img-rounded img-responsive">
 																	<i class="fa fa-play fa-2x  centered" ng-click="$root.handlePlayer(true, song.preview_url)"></i>
 																</a>
 															</div>
