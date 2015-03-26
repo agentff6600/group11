@@ -184,7 +184,7 @@
 
 		<div class="row" ng-show="queue[0]">
 			<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
-				<img ng-src="{{queue[0].album.images[0].url}}" alt="" class="img-rounded img-responsive ">
+				<img ng-src="{{queue[0].album.images[0].url || queue[0].images.url}}" alt="" class="img-rounded img-responsive ">
 			</div>
 			<div class="row">
 				<div class=" col-md-offset-1 col-xs-offset-1 col-xs-10 col-md-10">
