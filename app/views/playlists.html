@@ -11,7 +11,7 @@
 					<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="$root.addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 
 					<span class="input-group-btn">
-						<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+						<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="fa fa-plus" aria-hidden="true"></span>
 						</button>
 					</span>
 				</div>
@@ -33,7 +33,7 @@
 				</div>
 
 				<div class="voffset3"></div>
-				<h4 align="center">{{playlist.name}}<a class="glyphicon glyphicon-trash pull-right" ng-click="removePlaylist(playlist.id)"></a></h4>
+				<h4 align="center">{{playlist.name}}<a class="fa fa-trash-o fa-lg pull-right" ng-click="removePlaylist(playlist.id)" style="text-decoration:none"></a></h4>
 			</button>
 
 		</div>
@@ -91,7 +91,7 @@
 
 					<div class="well">
 						<div class="caption">
-							<button class="btn btn-primary col-md-12" type="submit" ng-click="playAll($root.plId)"><span class="glyphicon glyphicon-play" aria-hidden="true"></span> Play All</button>
+							<button class="btn btn-primary col-md-12" type="submit" ng-click="playAll($root.plId)"><i class="fa fa-play"></i> Play All</button>
 						</div>
 						<div class="voffset5">
 							<div class="row">
@@ -107,7 +107,7 @@
 											</tr>
 										</thead>
 										<tbody>
-											<tr ng-repeat="song in $root.playlists[$root.plId].playlist.songs">
+											<tr ng-repeat="song in $root.playlists[$root.plId].playlist.songs track by $index">
 												<td width="7%">
 													<div class="square-container img drag" ng-href="" data-drag="true" data-target="#{{album.id}}" data-jqyoui-options="{revert: 'invalid'}" ng-model="$root.playlists[$root.plId].playlist.songs" jqyoui-draggable="{index: {{$index}},animate:true, placeholder:'keep'}">
 														<a ng-href="" ng-click="$root.handlePlayer(true, song.preview_url)"><img n-href="" ng-src="{{song.album.images[0].url || song.images.url}}" alt="" class="img-rounded img-responsive">
@@ -125,7 +125,7 @@
 
 													<div class="btn-group">
 														<button type="button" class="btn btn-default dropdown-toggle btn-sm" data-toggle="dropdown" aria-expanded="false">
-															<span class="glyphicon glyphicon-plus"></span> <span class="caret"></span>
+															<i class="fa fa-plus"></i> <span class="caret"></span>
 														</button>
 														<ul class="dropdown-menu" role="menu">
 															<li ng-repeat="playlist in $root.playlists" ng-click="$root.addSongToPlaylist(playlist.id, song)"><a>{{playlist.name}} </a>
@@ -134,7 +134,7 @@
 																<input type="text" ng-model="inputPlaylistName" class="form-control" ng-enter="$root.addNewPlaylist(inputPlaylistName)" placeholder="Name & Create!">
 
 																<span class="input-group-btn">
-																	<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+																	<button class="btn btn-primary" type="button" ng-click="$root.addNewPlaylist(inputPlaylistName)"><i class="fa fa-plus"></i>
 																	</button>
 																</span>
 															</div>
@@ -142,7 +142,7 @@
 													</div>
 												</td>
 												<td>
-													<a class="glyphicon glyphicon-remove pull-right" ng-click="removeSongFromPlaylist($root.plId, song)"></a>
+													<a class="fa fa-times" ng-click="removeSongFromPlaylist($root.plId, song)"></a>
 												</td>
 											</tr>
 										</tbody>

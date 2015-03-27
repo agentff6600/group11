@@ -36,9 +36,11 @@
     }    
   }
   
-  $('.dropdown-toggle').find('#focus').click(function (e) {
+  $('.dropdown-menu').find('#focus').click(function (e) {
     e.stopPropagation();
   });
+
+
 
 
   $scope.topsongs=[];
