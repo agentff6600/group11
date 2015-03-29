@@ -10,10 +10,10 @@
 	 	//console.log("ModalAlbumCtrl");	 
 
 	 	$scope.open = function (artist, size) {	 		
-     
+     	
 			$rootScope.artistModal = artist;	 				
       $rootScope.show=0;
-       console.log("album",$rootScope.show);
+      // console.log("album",$rootScope.show);
 			//Data is retrieved only from Swedesh Market (if other country required change 'SE' string)
 			//Limited to 20 Albums (can be extended to maximum 50 - just add in {limit: 50})
 			Spotify.getArtistAlbums(artist.id, {

@@ -7,7 +7,7 @@
  */
 angular.module('musicPlayerApp')
   .controller('SongsCtrl', function ($scope, $rootScope, $modal, $log, Spotify) {
-  	console.log("SongsCtrl");        
+  	console.log("songs controller");        
 
     $scope.getSongsFromAlbum = function(album){          
       Spotify.getAlbumTracks(album).then(function (data) {
@@ -28,7 +28,7 @@ angular.module('musicPlayerApp')
 
     $scope.open = function (album, size) {
       $rootScope.show=1;
-      console.log("songs",$rootScope.show);
+     // console.log(album);
       setTimeout(function(){ 
       $scope.getSongsFromAlbum(album.id);
 

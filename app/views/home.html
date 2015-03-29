@@ -82,10 +82,10 @@
 							<div ng-repeat="album in $root.albums">
 								<div class="col-md-2">
 									<div class="square-container img-rounded" ng-controller="SongsCtrl">
-										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open()">
+										<img ng-src="{{album.images[0].url}}" alt="" class="img-rounded img-responsive" ng-click="open(album)">
 									</div>
 									<h4><b>{{album.name}}</b></h4>
-									<h5>by {{album.artist.name}} <i>artist name needed</i></h5>
+								<!--	<h5>by {{album.artist.name}} <i>artist name needed</i></h5> -->
 								</div>
 							</div>
 						</div>
